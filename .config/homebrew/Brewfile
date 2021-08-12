@@ -1,0 +1,46 @@
+tap "homebrew/bundle"
+tap "heroku/brew"
+
+brew "awscli"
+brew "gcc"
+brew "git"
+brew "heroku"
+brew "neovim"
+brew "openssl@1.1"
+brew "python"
+brew "rbenv"
+brew "readline"
+brew "ruby"
+brew "sqlite"
+brew "wget"
+# zsh関連
+brew "zplug"
+brew "zsh-completion"
+
+# ファイルブラウザ
+brew "ranger"
+# youtubeをmp4で保存
+brew "youtube-dl"
+# ゴミ箱
+brew "trash-cli"
+# OS情報表示
+brew "neofetch"
+# webpackerを使用、rails用
+brew "node"
+# rails用
+brew "yarn"
+# インクリメンタル検索
+brew "fzf"
+# 動画を音源、着信音にする
+brew "ffmpeg"
+
+cask "appcleaner"
+cask "clipy"
+cask "db-browser-for-sqlite"
+cask "deepl"
+cask "firefox"
+cask "google-chrome"
+cask "iterm2"
+cask "typora"
+cask "visual-studio-code"
+cask "wireshark"

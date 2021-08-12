@@ -1,0 +1,58 @@
+# File Tree
+[[plugins]]
+repo = 'preservim/nerdtree'
+hook_add = '''
+  let NEADTreeShowHidden=1
+  nnoremap <silent><C-a> :NERDTreeFind<CR>:vertical res 30<CR>
+'''
+
+# navigation bar
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+depends = 'vim-airline'
+hook_add = '''
+  let g:airline_theme = 'molokai' 
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#buffer_idx_mode = 1
+  let g:airline#extensions#tabline#fnamemod = ':t'
+'''
+
+# git diff
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  set signcolumn=yes
+  let g:gitgutter_async = 1
+  highlight GitGutterAdd ctermfg=green
+  highlight GitGutterChange ctermfg=yellow
+  highlight GitGutterDelete ctermfg=red
+  highlight GitGutterChangeDelete ctermfg=yellow
+'''
+
+# comment out
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+hook_add = '''
+  vnoremap ? :'<,'>TComment<CR>
+'''
+
+# colorscheme
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+hook_add = '''
+  colorscheme jellybeans
+'''
+
+# bracket syntax
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add = '''
+  let g:rainbow_active = 1
+'''
+
+# file icons
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
