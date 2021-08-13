@@ -1,4 +1,11 @@
-# パスの設定
+# ====================================================
+#  _________  _   _ ____   ____
+# |__  / ___|| | | |  _ \ / ___|
+#   / /\___ \| |_| | |_) | |
+#  / /_ ___) |  _  |  _ <| |___
+# /____|____/|_| |_|_| \_\\____|
+# ====================================================
+# brew path
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/sbin:$PATH
 
@@ -9,23 +16,23 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
-
-# 補完で大文字小文字どちらでもマッチする
+# ignore case for searching
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-# 補完を詰めて表示
+# display packed completion
 setopt list_packed
-# 補完一覧をカラー表示
+# display complete list 
 autoload colors
 zstyle ':completion:*' list-colors ''
-# スペルチェック
+# check spell
 setopt correct
 
-# エイリアスの設定
+# aliases
 alias work="cd $HOME/Documents/mizusirazu.net"
 alias rmhist="trash -f \.[a-z]*_history \.[a-z]*hst \.[a-z]*info"
 alias ..="cd .."
 alias ...="cd ../../"
 alias c="clear"
+alias t='tmux'
 alias ls="ls -G"
 alias grep="grep --color=auto"
 alias rm="trash"
@@ -34,7 +41,6 @@ alias dc="docker-compose"
 alias du-cd="du -sm ./* | sort -rn | head" 
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
 alias brewfile="cd ~/.config/homebrew"
-alias t='tmux'
 
 # function
 yt-dl-mp3() { 
@@ -57,14 +63,19 @@ eval "$(rbenv init -)"
 export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
+# use fzf
+export PATH="$PATH:$HOME/.fzf/bin"
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 30% --border'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zplug
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-# 自動補完機能
+# auto completion
 zplug "zsh-users/zsh-autosuggestions"
-# ハイライト機能
+# highlight
 zplug "zsh-users/zsh-syntax-highlighting"
 
 # 未インストール項目をインストールする
@@ -77,16 +88,16 @@ fi
 
 zplug load
 
-# メモリに保存される履歴の件数
+# number of histories stored in memory
 export HISTSIZE=1000
-# 履歴ファイルに保存される履歴の件数
+# number of histories stored in histfile
 export SAVEHIST=10000
-# 同じコマンドを削除
+# delete same command
 setopt hist_ignore_all_dups
-# スペースから始まるコマンドは削除
+# delete command that start with white space
 setopt hist_ignore_space
-# 余白は詰めて記録
+# Fillin the mergin and record
 setopt hist_reduce_blanks
-# 補完時にヒストリを自動的に展開
+# Automatically expand history during completion
 setopt hist_expand
 

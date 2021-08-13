@@ -100,11 +100,6 @@ noremap <Space>w :<C-u>w<CR>
 noremap <Space>q :<C-u>q<CR>
 noremap <Space>e :<C-u>e .<CR>
 noremap <Space>t :<C-u>tabe .<CR>
-" fzf
-nnoremap <silent> fzf :Files<CR>
-" fugitive
-cnoremap gs :<C-u>Gstatus<CR>         " GStatus
-cnoremap gd :<C-u>Gdiff<CR>           " Gdiff
 
 "
 " ===========================================
