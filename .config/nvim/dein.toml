@@ -14,9 +14,7 @@ repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
 hook_add = '''
   let g:airline_theme = 'molokai' 
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#buffer_idx_mode = 1
-  let g:airline#extensions#tabline#fnamemod = ':t'
+  
 '''
 
 # git diff
@@ -79,20 +77,21 @@ hook_add = '''
 # LSP(Language Server Protocol)
 [[plugins]]
 repo = 'neoclide/coc.nvim'
+merge = 0
 rev = 'release'
 build = '''
   git checkout release
 '''
 hook_add = '''
   inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
   function! s:check_back_space() abort
     let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~# '\s'
+    return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
@@ -100,6 +99,14 @@ hook_add = '''
   nmap <silent> gr <Plug>(coc-references)
 '''
 
-# autocomplete close (about def...end, if...end)
+# Insert or delete brackets, parens, quotes in pair.
 [[plugins]]
-repo = 'tpope/vim-endwise'
+repo = 'jiangmiao/auto-pairs'
+
+# git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# bracket replace
+[[plugins]]
+repo = 'tpope/vim-surround'

@@ -27,7 +27,7 @@ zstyle ':completion:*' list-colors ''
 setopt correct
 
 # aliases
-alias work="cd $HOME/Documents/mizusirazu.net"
+alias mizusirazu="cd $HOME/Documents/mizusirazu.net"
 alias rmhist="trash -f \.[a-z]*_history \.[a-z]*hst \.[a-z]*info"
 alias ..="cd .."
 alias ...="cd ../../"
@@ -56,12 +56,12 @@ docker-tags() {
   curl https://registry.hub.docker.com/v1/repositories/$1/tags | jq -r '.[].name'
 }
 
+# use n (node)
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
+
 # use rbenv
 eval "$(rbenv init -)"
-
-# use nvm
-export NVM_DIR="$HOME/.nvm"
-source $(brew --prefix nvm)/nvm.sh
 
 # use fzf
 export PATH="$PATH:$HOME/.fzf/bin"

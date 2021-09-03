@@ -42,34 +42,28 @@ set backspace=indent,eol,start
 " ignore case sensitivity when searching
 set ignorecase
 " highlight word when searching
-" set nohlsearch
+set nohlsearch
 " autocomplete commnad mode
 set wildmenu
 " display position of cursor
 set ruler
+" setting for auto compile
+set backupcopy=yes
 
-"
 " ===========================================
 " Key bindings
 " ===========================================
 "
 
-" no yank wen use "x"
-vnoremap x "_x
+" no yank wen use 'd' and 'x'
+vnoremap d "_d
 nnoremap x "_x
 " display previous tab
-nnoremap <silent> , :bprevious<CR>
+" nnoremap <silent> , :bprevious<CR>
 " display next tab
-nnoremap <silent> . :bnext<CR>
+" nnoremap <silent> . :bnext<CR>
 " delete current buffer
 nnoremap bd :bd<CR>
-" autocomplate Bracket
-inoremap {<ENTER> {}<Left><CR><ESC><S-o>
-inoremap [<ENTER> []<Left><CR><ESC><S-o>
-inoremap (<ENTER> ()<Left><CR><ESC><S-o>
-" autocomplate quotation
-inoremap ' ''<LEFT>
-inoremap " ""<LEFT>
 " use emac key bind when insert mode
 imap <C-p> <Up>
 imap <C-n> <Down>
@@ -93,8 +87,9 @@ nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
 
 " .vimrc
-cnoremap init :<C-u>edit $MYVIMRC<CR>
-noremap <Space>s :source $MYVIMRC<CR>
+cnoremap vimrc :<C-u>edit $MYVIMRC<CR>
+cnoremap dein :<C-u>edit /Users/shinzanmono/Documents/dotfile/.config/nvim/dein.toml<CR>
+cnoremap save :source $MYVIMRC<CR>
 " basic
 noremap <Space>w :<C-u>w<CR>
 noremap <Space>q :<C-u>q<CR>
@@ -106,7 +101,6 @@ noremap <Space>t :<C-u>tabe .<CR>
 " plugin manager (dein)
 " ===========================================
 "
-
 if &compatible
   set nocompatible
 endif
@@ -135,23 +129,6 @@ if dein#load_state(s:dein_dir)
   call dein#load_toml(s:toml)
   call dein#load_toml(s:toml_lazy, {'lazy':1})
 
-  " end certain structures automatically
-  " call dein#add('tpope/vim-endwise')
-  " usage: help emmet
-  " call dein#add('mattn/emmet-vim')
-  " file search
-  " call dein#add('junegunn/fzf', { 'build': './install' })
-  " call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-
-  " slim syntax
-  " call dein#add('slim-template/vim-slim')
-  " react syntax
-  " call dein#add('maxmellon/vim-jsx-pretty')
-  " yaml syntax
-  " call dein#add('stephpy/vim-yaml')
-  " git
-  " call dein#add('tpope/vim-fugitive')
-
   call dein#end() 
   call dein#save_state()
 endif
@@ -178,22 +155,3 @@ if (empty($TMUX))
 endif
 
 syntax enable
-
-
-
-
-" ===========================================
-" snippets
-" ===========================================
-"
-let g:user_emmet_settings = {
-\  'html' : {
-  \    'snippets' : {
-    \      'pe': "<%= ${child}| %>", 
-    \      'else': "<% else %>", 
-    \      'end': "<% end %>", 
-    \      'link_to': "<%= link_to ${child}| %>"
-    \    }
-    \  }
-    \}
-

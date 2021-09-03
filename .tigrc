@@ -6,7 +6,7 @@
 #   |_| |___\____|_| \_\\____|
 # ==================================================================================================
 set main-view  = id:yes date:default,local=yes author commit-title:graph=yes,refs=yes,overflow=false
-set blame-view = id:yes date:default,color line-number:yes,interval=1 text
+set blame-view = date:default author:email-user id:yes,color line-number:yes,interval=1 text
 set pager-view = text
 set stage-view = text
 set log-view   = text
@@ -26,9 +26,16 @@ set refresh-mode = auto
 bind generic P ?@!git push origin %(repo:head)
 # delete untracked file 
 bind status D ?@rm %(file)
+# checkout
+bind main O ?git checkout "%(prompt Enter checkout branch name: )"
+# checkout -b
+bind branch B ?git checkout -b "%(prompt Enter new branch name: )" %(branch)
+bind main B ?git checkout -b "%(prompt Enter new branch name: )"
 
 # etc...
 bind generic F ?@!git fetch %(remote)
 bind generic U ?@!git pull %(remote)
+bind reflog ! ?git reset --soft %(commit)
+bind generic <Ctrl-P> ?@?git push origin %(repo:head) -f
 
 color cursor black white bold
