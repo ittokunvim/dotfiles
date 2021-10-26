@@ -14,7 +14,6 @@ repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
 hook_add = '''
   let g:airline_theme = 'molokai' 
-  
 '''
 
 # git diff
@@ -36,13 +35,6 @@ hook_add = '''
   vnoremap ? :'<,'>TComment<CR>
 '''
 
-# colorscheme
-[[plugins]]
-repo = 'nanotech/jellybeans.vim'
-hook_add = '''
-  colorscheme jellybeans
-'''
-
 # bracket syntax
 [[plugins]]
 repo = 'luochen1990/rainbow'
@@ -59,45 +51,22 @@ repo = 'ryanoasis/vim-devicons'
 repo = 'junegunn/fzf'
 hook_post_update = './install --all'
 merged = 0
+
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
 hook_add = '''
-  command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always'.shellescape(<q-args>), 1, 
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \   : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-  \   <bang>0)
   nnoremap <C-q> :Rg<Space>
   nnoremap <C-p> :GFiles<CR>
   nnoremap <C-h> :History<CR>
 '''
 
-# LSP(Language Server Protocol)
+# LSP (Language Server Protocol)
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 rev = 'release'
-build = '''
-  git checkout release
-'''
-hook_add = '''
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
-'''
+build = 'git checkout release'
 
 # Insert or delete brackets, parens, quotes in pair.
 [[plugins]]
@@ -110,3 +79,11 @@ repo = 'tpope/vim-fugitive'
 # bracket replace
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+# color scheme
+[[plugins]]
+repo = 'folke/tokyonight.nvim'
+hook_add = '''
+  let g:tokyonight_style = "night"
+  colorscheme tokyonight
+'''

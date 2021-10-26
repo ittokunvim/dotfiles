@@ -1,4 +1,3 @@
-" ===========================================
 " __     _____ __  __ ____   ____
 " \ \   / /_ _|  \/  |  _ \ / ___|
 "  \ \ / / | || |\/| | |_) | |
@@ -52,16 +51,10 @@ set backupcopy=yes
 
 " ===========================================
 " Key bindings
-" ===========================================
-"
 
 " no yank wen use 'd' and 'x'
 vnoremap d "_d
 nnoremap x "_x
-" display previous tab
-" nnoremap <silent> , :bprevious<CR>
-" display next tab
-" nnoremap <silent> . :bnext<CR>
 " delete current buffer
 nnoremap bd :bd<CR>
 " use emac key bind when insert mode
@@ -79,27 +72,22 @@ vnoremap > >gv
 vnoremap < <gv
 
 " split
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sh <C-w>h
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
 
 " .vimrc
 cnoremap vimrc :<C-u>edit $MYVIMRC<CR>
 cnoremap dein :<C-u>edit /Users/shinzanmono/Documents/dotfile/.config/nvim/dein.toml<CR>
-cnoremap save :source $MYVIMRC<CR>
+cnoremap lazy :<C-u>edit /Users/shinzanmono/Documents/dotfile/.config/nvim/dein_lazy.toml<CR>
+
 " basic
 noremap <Space>w :<C-u>w<CR>
 noremap <Space>q :<C-u>q<CR>
 noremap <Space>e :<C-u>e .<CR>
 noremap <Space>t :<C-u>tabe .<CR>
 
-"
 " ===========================================
 " plugin manager (dein)
-" ===========================================
 "
 if &compatible
   set nocompatible
@@ -119,8 +107,8 @@ endif
 
 " toml
 let s:toml_dir=expand('~/.config/nvim/')
-let s:toml=s:toml_dir . 'dein.toml'
-let s:toml_lazy=s:toml_dir . 'dein_lazy.toml'
+let s:toml = s:toml_dir . 'dein.toml'
+let s:toml_lazy = s:toml_dir . 'dein_lazy.toml'
 
 " load plugin
 if dein#load_state(s:dein_dir)
@@ -133,25 +121,7 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-" slim syntax
-autocmd BufRead,BufNewFile *.slim setfiletype slim
-
 " execute install if any plugins not install
 if dein#check_install()
   call dein#install()
 endif
-
-" ===========================================
-" color scheme
-" ===========================================
-"
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
-syntax enable

@@ -1,8 +1,3 @@
-# slim syntax
-[[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = ['slim']
-
 # react syntax
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
@@ -22,35 +17,32 @@ on_ft = ['toml']
 repo = 'tpope/vim-endwise'
 on_ft = ['ruby']
 
-# emmet
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['html']
-hook_add = '''
-  let g:user_emmet_leader_key='<C-Z>'
-  let g:user_emmet_settings = {
-\ 'html' : {
-\   'snippets' : {
-\     'pe': "<%= ${child}| %>",
-\     'else': "<% else %>",
-\     'end': "<% end %>",
-\     'link_to': "<%= link_to ${child}| %>",
-\     'x-ua': "<meta http-equiv=\X-UA-Compatible\" content=\"IE=edge\">",
-\     'viewport': "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-\     'script': "<script src=\"${child}|\"></script>",
-\     },
-\   },
-\ 'javascript': {
-\   'snippets': {
-\     'react': "import React from \"react\"\n\nexport default class ${1}| extends React.Component"
-\    }
-\ }
-\}
-'''
-
+# yaml indent
 [[plugins]]
 repo = 'stephpy/vim-yaml'
 on_ft = ['yaml', 'yml']
 hook_add = '''
   let g:yaml_limit_spell = 1
 '''
+
+# emmet
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'erb', 'jsx']
+hook_add = '''
+  let g:user_emmet_leader_key='<C-Z>'
+  let g:user_emmet_settings = {
+\ 'html' : {
+\   'snippets' : {
+\     'x-ua': "<meta http-equiv=\X-UA-Compatible\" content=\"IE=edge\">",
+\     'viewport': "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+\     'pe': "<%= ${child}| %>",
+\     'else': "<% else %>",
+\     'end': "<% end %>",
+\     'link_to': "<%= link_to ${child}| %>",
+\     'script': "<script src=\"${child}|\"></script>"
+\   }
+\ }
+\}
+'''
+
