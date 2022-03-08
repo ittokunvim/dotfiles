@@ -1,1 +1,10 @@
 .DS_Store
+
+.config/coc
+.config/iterm2
+.config/wireshark
+.config/yarn
+.config/configstore
+.config/neofetch
+
+.config/homebrew/Brewfile.lock.json

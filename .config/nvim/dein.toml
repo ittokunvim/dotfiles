@@ -82,8 +82,7 @@ repo = 'tpope/vim-surround'
 
 # color scheme
 [[plugins]]
-repo = 'folke/tokyonight.nvim'
+repo = 'gosukiwi/vim-atom-dark'
 hook_add = '''
-  let g:tokyonight_style = "night"
-  colorscheme tokyonight
+  colorscheme atom-dark-256
 '''

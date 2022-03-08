@@ -37,9 +37,13 @@ hook_add = '''
 \     'x-ua': "<meta http-equiv=\X-UA-Compatible\" content=\"IE=edge\">",
 \     'viewport': "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
 \     'pe': "<%= ${child}| %>",
+\     'pi': "<% ${child}| %>",
+\     'if': "<% if ${child}| %>",
+\     'unless': "<% unless ${child}| %>",
 \     'else': "<% else %>",
 \     'end': "<% end %>",
 \     'link_to': "<%= link_to ${child}| %>",
+\     'render': "<%= render ${child}| %>",
 \     'script': "<script src=\"${child}|\"></script>"
 \   }
 \ }

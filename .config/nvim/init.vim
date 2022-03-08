@@ -75,12 +75,7 @@ vnoremap < <gv
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
 
-" .vimrc
-cnoremap vimrc :<C-u>edit $MYVIMRC<CR>
-cnoremap dein :<C-u>edit /Users/shinzanmono/Documents/dotfile/.config/nvim/dein.toml<CR>
-cnoremap lazy :<C-u>edit /Users/shinzanmono/Documents/dotfile/.config/nvim/dein_lazy.toml<CR>
-
-" basic
+" my settings
 noremap <Space>w :<C-u>w<CR>
 noremap <Space>q :<C-u>q<CR>
 noremap <Space>e :<C-u>e .<CR>
@@ -125,3 +120,9 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+" color scheme
+" colorscheme murphy 
+" colorscheme slate
+" colorscheme torte
+" colorscheme zellner

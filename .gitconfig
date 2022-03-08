@@ -1,6 +1,6 @@
 [user]
-	name = shinzanmono
-	email = shinzanmono1192@gmail.com
+	name = 新参者
+	email = 73953416+shinzanmono@users.noreply.github.com
 [alias]
   s = status
   cm = commit
@@ -14,3 +14,8 @@
 
 [core]
 	editor = nvim
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

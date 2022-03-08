@@ -5,14 +5,17 @@
 # /____|____/|_| |_|_| \_\\____|
 # ====================================================
 # aliases
-alias mizusirazu="cd $HOME/Documents/mizusirazu.net"
+alias mizusirazu="cd $HOME/Documents/mizusirazu"
 alias ..="cd .."
 alias ...="cd ../../"
+alias d='docker'
+alias dc='docker-compose'
 alias ls="ls -G"
 alias grep="grep --color=auto"
 alias rm="trash"
 alias relog="exec $SHELL -l"
 alias du-cd="du -sm ./* | sort -rn | head" 
+alias ipecho="curl ifconfig.io"
 
 # download mp3 from youtube.com
 yt-dl-mp3() { 
@@ -49,6 +52,7 @@ export PATH=/opt/homebrew/sbin:$PATH
 eval "$(rbenv init -)"
 
 # pyenv
+export PATH=$HOME/.pyenv/shims:$PATH
 eval "$(pyenv init -)"
 
 # fzf
