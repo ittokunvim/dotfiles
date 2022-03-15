@@ -90,7 +90,7 @@ setopt correct
 
 # ====================================================
 # zplug
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
+export ZPLUG_HOME=$HOME/zplug
 source $ZPLUG_HOME/init.zsh
 
 # auto completion
