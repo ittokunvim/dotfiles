@@ -117,8 +117,8 @@ setopt correct
 
 export ZPLUG_HOME=$HOME/.zplug
 
-# if zplug command is not found
-if ! type zplug > /dev/null ; then
+# if .zplug/init.sh is not found
+if [ ! -e $ZPLUG_HOME/init.zsh ]; then
   git clone https://github.com/zplug/zplug $ZPLUG_HOME
 fi
 
