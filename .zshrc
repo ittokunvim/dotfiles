@@ -3,7 +3,10 @@
 #   / /\___ \| |_| | |_) | |
 #  / /_ ___) |  _  |  _ <| |___
 # /____|____/|_| |_|_| \_\\____|
-# ====================================================
+
+# prompt
+PROMPT="%F{green}%n %F{yellow}%m %F{blue}%c %F{white}%# "
+
 # aliases
 alias mizusirazu="cd $HOME/Documents/mizusirazu"
 alias ..="cd .."
@@ -17,60 +20,84 @@ alias relog="exec $SHELL -l"
 alias du-cd="du -sm ./* | sort -rn | head" 
 alias ipecho="curl ifconfig.io"
 
-# download mp3 from youtube.com
-yt-dl-mp3() { 
-  cd $HOME/Music/mp3
-  youtube-dl -x --audio-format mp3 -o '%(title)s.%(ext)s' $1
+# download wav from youtube.com
+yt-dl-wav() { 
+  youtube-dl -x --audio-format wav -o '%(title)s.%(ext)s' $1
+
+  if [ $? -gt 0 ]; then
+    echo 'usage: yt-dl-wav [YOUTUBE_URL]'
+  fi
 }
 
-# check docker image versions
-docker-tags() {
-  curl https://registry.hub.docker.com/v1/repositories/$1/tags | jq -r '.[].name'
+# make test image file
+create_test_img() {
+  dd if=/dev/urandom of=$2 count=$1 bs=1024
+
+  if [ $? -gt 0 ]; then
+    echo 'usage: create_test_img [NUMBER x 1024bytes] [PATH]'
+  fi
 }
 
-# ====================================================
 # zsh_history
+#
+# HISTSIZE: maximum number of commands to cache
+# SAVEHIST: maximum number of commands to be stored in history
+#
+# hist_ignore_all_dups: Delete the older of the duplicate commands
+# hist_ignore_dups:     Do not save the same command as the previous command
+# share_history:        Share history files
+# append_history:       Add and save history
+# inc_append_history:   add incrimental in history
+# hist_no_store:        history command does not save history file
+# hist_reduce_blanks:   fill the blanks and save
+
+export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=1000
-# no save dups command
+
 setopt hist_ignore_all_dups
-# no save command if start with white space
-setopt hist_ignore_space
-# Fillin the mergin and record
+setopt hist_ignore_dups
+setopt share_history
+setopt append_history
+setopt inc_append_history
+setopt hist_no_store
 setopt hist_reduce_blanks
-# Automatically expand history during completion
-setopt hist_expand
 
-# ====================================================
-# packages
-
-# brew
+# homebrew
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/sbin:$PATH
 
-# rbenv
-eval "$(rbenv init -)"
+# # rbenv
+# eval "$(rbenv init -)"
 
-# pyenv
-export PATH=$HOME/.pyenv/shims:$PATH
-eval "$(pyenv init -)"
+# # pyenv
+# export PATH=$HOME/.pyenv/shims:$PATH
+# eval "$(pyenv init -)"
 
-# fzf
-export PATH="$PATH:$HOME/.fzf/bin"
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-export FZF_DEFAULT_OPTS='--height 30% --border'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# # fzf
+# export PATH="$PATH:$HOME/.fzf/bin"
+# export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+# export FZF_DEFAULT_OPTS='--height 30% --border'
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Postgresql
-export PGDATA=/opt/homebrew/var/postgres
+# # Postgresql
+# export PGDATA=/opt/homebrew/var/postgres
 
-# n (node)
-export N_PREFIX=$HOME/.n
-export PATH=$N_PREFIX/bin:$PATH
+# # n (node)
+# export N_PREFIX=$HOME/.n
+# export PATH=$N_PREFIX/bin:$PATH
 
-# ====================================================
 # zsh-completions
-
+#
+# If there is a brew command, add it to the search.
+#
+# search options
+# - case-sensitivity:                                    zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# - Packed display of completion:                        setopt list_packed
+# - load ${fg}, $reset_color etc...:                     autoload colors
+# - colorized display for ls command completion as well: zstyle ':completion:*:default' list-colors ${LS_COLORS}
+# - check spell:                                         setopt correct
+#
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
@@ -78,19 +105,23 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-# ignore case for searching
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-# display packed completion
 setopt list_packed
-# display complete list 
 autoload colors
-zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:default' list-colors ${LS_COLORS}
 # check spell
 setopt correct
 
-# ====================================================
 # zplug
-export ZPLUG_HOME=$HOME/zplug
+#
+
+export ZPLUG_HOME=$HOME/.zplug
+
+# if zplug command is not found
+if ! type zplug > /dev/null ; then
+  git clone https://github.com/zplug/zplug $ZPLUG_HOME
+fi
+
 source $ZPLUG_HOME/init.zsh
 
 # auto completion
@@ -107,3 +138,4 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+
