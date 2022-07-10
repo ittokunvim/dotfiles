@@ -34,6 +34,8 @@ set hls
 " key bindings
 " =====================================
 "
+" open this file
+noremap init :<C-u>e $MYVIMRC<CR>
 " my shortcut
 noremap <Space>w :<C-u>w<CR>
 noremap <Space>q :<C-u>q<CR>
@@ -85,6 +87,9 @@ Plug 'yuki-yano/fzf-preview.vim'
 " file explorer (https://github.com/lambdalisue/fern.vim)
 Plug 'lambdalisue/fern.vim'
 
+" live server (https://github.com/turbio/bracey.vim)
+Plug 'turbio/bracey.vim'
+
 " colorscheme (https://github.com/lambdalisue/fern.vim)
 Plug 'sainnhe/gruvbox-material'
 
@@ -94,6 +99,11 @@ call plug#end()
 " =====================================
 "
 " coc
+let g:global_extensions = ['coc-html', 'coc-css']
+
+# coc document scroll
+inoremap <silent><expr> <c-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<c-j>"
+inoremap <silent><expr> <c-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<c-k>"
 
 " fern
 noremap <Space>e :<C-u>Fern .<CR>
@@ -103,4 +113,8 @@ noremap fzf :<C-u>Files<CR>
 
 " gruvbox-material
 colorscheme gruvbox-material 
+
+" set indent of html <script>, <style> to 0
+let g:html_indent_script1 = "zero"
+let g:html_indent_style1 = "zero"
 

@@ -1,8 +1,8 @@
 [user]
-	name = 新参者
-	email = 73953416+shinzanmono@users.noreply.github.com
+	name = いっとく
+	email = 73953416+ittoku703@users.noreply.github.com
 [alias]
-  s = status
+  s = status --short
   cm = commit
 	co = checkout
 	msg = commit -m

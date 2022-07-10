@@ -22,7 +22,7 @@ alias ipecho="curl ifconfig.io"
 
 # download wav from youtube.com
 yt-dl-wav() { 
-  youtube-dl -x --audio-format wav -o '%(title)s.%(ext)s' $1
+  youtube-dl --ignore-errors -x --audio-format wav -o '%(title)s.%(ext)s' $1
 
   if [ $? -gt 0 ]; then
     echo 'usage: yt-dl-wav [YOUTUBE_URL]'
