@@ -1,0 +1,30 @@
+add_newline = true
+
+command_timeout = 1000
+
+format = "$env_var $all"
+
+# Shows an icon that should be included by zshrc script based on the distribution or os
+[env_var.STARSHIP_DISTRO]
+format = '[$env_value](white)'
+variable = "STARSHIP_DISTRO"
+disabled = false
+
+[username]
+style_user = "white"
+style_root = "white"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "on [$hostname](bold yellow) "
+disabled = false
+
+[directory]
+truncation_length = 1
+truncation_symbol = "…/"
+home_symbol = " ~"
+read_only = "  "
+format = "at [$path]($style)[$read_only]($read_only_style) "
