@@ -1,10 +1,9 @@
 .DS_Store
 
-.config/coc
-.config/iterm2
-.config/wireshark
-.config/yarn
-.config/configstore
-.config/neofetch
+.gitconfig
 
-.config/homebrew/Brewfile.lock.json
+.config/cache
+
+.config/neofetch
+.config/wireshark
+

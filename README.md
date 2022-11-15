@@ -1,18 +1,37 @@
 # dotfiles
-> Build an environment such as zsh and nvim on a new PC (environment)
 
-## Steps to build an environment
-1. install `git zsh nvim zplug`
-2. clone this repository
-3. move dotfiles to home directory(~/)
+このリポジトリでは、開発のための設定ファイルが置かれています。以下の指示に従って自分自身の環境にインストールしてください。
+
+### fetch dotfiles
+
+環境を構築するにはまずファイルが必要です。このリポジトリをダウンロードしましょう。
+
+```shell
+git clone https://github.com/ittoku-ky73/dotfiles.git
+```
 
 ### install zsh
-1. change shell zsh: `chsh -s $(which zsh)`
-2. load zshrc: `source ~/.zshrc`
 
-### install nvim
-1. run: `nvim`
+次に、シェルの設定を行います。Zshを使用します。以下の手順でインストールしましょう。
 
-references: 
-- https://github.com/zplug/zplug
+> 以下の手順を踏む前に、以下のコマンドが必要になります。それぞれインストールしておきましょう。
+>
+> - zsh：https://wiki.archlinux.jp/index.php/Zsh
+> - zplug：https://github.com/zplug/zplug
+>
+> - starship：https://starship.rs/
 
+1. ホームディレクトリに移動してZshのシンボリックリンクを貼ります。
+
+```shell
+ln -s PATH/TO/dotfiles/.zshrc ~/ && ln -s PATH/TO/dotfiles/.zsh ~/
+```
+
+2. zshを読み込みます。
+
+```shell
+source .zshrc
+```
+
+### intall nvim
+これから書いていきます✊

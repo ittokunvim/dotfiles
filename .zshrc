@@ -14,4 +14,3 @@ export PATH=/opt/homebrew/sbin:$PATH
 [[ -f ~/.zsh/history.zsh ]] && source ~/.zsh/history.zsh
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
 [[ -f ~/.zsh/zplug.zsh ]] && source ~/.zsh/zplug.zsh
-
