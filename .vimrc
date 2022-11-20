@@ -20,9 +20,6 @@ set tabstop=4
 " 4 whitespace when autoindent
 set shiftwidth=4
 
-" " tab => whitespace
-" set expandtab
-
 " open right when vertical sprit
 set splitright
 
@@ -38,29 +35,23 @@ set hls
 " noremap init :<C-u>e $MYVIMRC<CR>
 
 " my shortcut
-noremap <Space>w :<C-u>w<CR>
-noremap <Space>q :<C-u>q<CR>
-noremap <Space>e :<C-u>e .<CR>
+noremap ;w :update<CR>
+noremap ;q :exit<CR>
+noremap ;e :Ex<CR>
 
 " use emac key bind when insert mode
-imap <C-p> <Up>
-imap <C-n> <Down>
-imap <C-b> <Left>
-imap <C-f> <Right>
-imap <C-a> <Home>
-imap <C-e> <End>
-imap <C-d> <Del>
-imap <C-h> <BS>
-
-" no yank wen use 'd' and 'x'
-vnoremap d "_d
-nnoremap x "_x
-
-" no open select range after indent in visual mode
-vnoremap > >gv
-vnoremap < <gv
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Del>
+inoremap <C-h> <BS>
 
 " split display
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
+
+syntax on
 
