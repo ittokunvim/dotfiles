@@ -25,15 +25,13 @@ set splitright
 
 " copy on clipboard when yank string
 set clipboard=unnamed
-" highright string searching
-set hls
+
+" cursor line
+set cursorline
 
 " key bindings
 " =====================================
 "
-" open this file
-" noremap init :<C-u>e $MYVIMRC<CR>
-
 " my shortcut
 noremap ;w :update<CR>
 noremap ;q :exit<CR>
@@ -52,6 +50,4 @@ inoremap <C-h> <BS>
 " split display
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
-
-syntax on
 
