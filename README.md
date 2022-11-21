@@ -34,4 +34,22 @@ source .zshrc
 ```
 
 ### intall nvim
-これから書いていきます✊
+次にテキストエディタの設定を行います。では下記のURLにアクセスして、`nvim`をインストールしましょう。
+
+> nvim: https://github.com/neovim/neovim/wiki/Installing-Neovim
+
+`nvim`をインストールできたら、以下のコマンドを実行します。
+
+```shell
+nvim
+```
+
+次に、プラグインをインストールしていきます。
+
+```shell
+nvim
+# vim command
+:PackerInstall
+```
+
+これでOKのはず👏
