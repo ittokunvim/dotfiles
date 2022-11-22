@@ -1,14 +1,11 @@
 local cmp = require('cmp')
+local luasnip = require('luasnip')
 local opts = {}
 
 opts.snippet = {
 	expand = function(args)
 		vim.fn["vsnip#anonymous"](args.body)
 	end,
-}
-
-opts.sources = {
-	{ name = 'nvim_lsp' },
 }
 
 opts.mapping = cmp.mapping.preset.insert({
@@ -21,6 +18,11 @@ opts.mapping = cmp.mapping.preset.insert({
 
 opts.experimental = {
 	ghost_text = true,
+}
+
+opts.sources = {
+	{ name = 'nvim_lsp' },
+	{ name = 'luasnip' },
 }
 
 cmp.setup(opts)

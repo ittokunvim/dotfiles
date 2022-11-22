@@ -1,3 +1,5 @@
+local use = require('packer').use
+
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 	use 'luochen1990/rainbow'
@@ -5,6 +7,7 @@ return require('packer').startup(function()
 	use 'morhetz/gruvbox'
 	use 'sheerun/vim-polyglot'
 	use 'nvim-lualine/lualine.nvim'
+	use 'windwp/nvim-autopairs'
 	-- filer
 	use 'lambdalisue/fern.vim'
 	use 'lambdalisue/nerdfont.vim'
@@ -25,5 +28,7 @@ return require('packer').startup(function()
 	use 'hrsh7th/vim-vsnip'
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig'
+	use 'L3MON4D3/LuaSnip'
+	use 'saadparwaiz1/cmp_luasnip'
 end)
 

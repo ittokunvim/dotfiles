@@ -6,6 +6,7 @@ mason_config.setup {
 	ensure_installed = {
 		'sumneko_lua',
 		'tsserver',
+		'cssls',
 	},
 }
 
@@ -33,5 +34,19 @@ local opts = { on_attach = on_attach, capabilities = capabilities }
 mason_config.setup_handlers({
 	function(server_name)
 		lspconfig[server_name].setup(opts)
-	end
+	end,
+	['sumneko_lua'] = function ()
+		local lua_opts = {
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { 'vim' },
+					},
+				},
+			},
+			on_attach = on_attach,
+			capabilities = capabilities,
+		}
+		lspconfig.sumneko_lua.setup(lua_opts)
+	end,
 })
