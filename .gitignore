@@ -7,4 +7,5 @@
 .config/neofetch
 .config/wireshark
 .config/iterm2
+.config/nvim/plugin
 

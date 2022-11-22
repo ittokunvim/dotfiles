@@ -3,6 +3,13 @@ vim.cmd([[
 	so ~/.vimrc
 ]])
 
-require('plugins')
+require('packer-config')
+require('packer-config.keymap')
+require('packer-config.colorscheme')
 
-require('lualine').setup {}
+require('fern-config')
+require('lualine-config')
+require('lsp-config')
+require('lsp-config.mason')
+require('lsp-config.cmp')
+
