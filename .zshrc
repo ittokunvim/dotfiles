@@ -8,6 +8,9 @@
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/sbin:$PATH
 
+# ruby
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
 [[ -f ~/.zsh/aliase.zsh ]] && source ~/.zsh/aliase.zsh
 [[ -f ~/.zsh/completion.zsh ]] && source ~/.zsh/completion.zsh
 [[ -f ~/.zsh/function.zsh ]] && source ~/.zsh/function.zsh

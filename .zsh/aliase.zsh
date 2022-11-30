@@ -13,5 +13,6 @@ alias grep="grep --color=auto"
 alias rm="trash"
 alias relog="exec $SHELL -l"
 alias du-cd="du -sm ./* | sort -rn | head" 
-alias ipecho="curl ifconfig.io"
+alias groipecho="curl ifconfig.io"
+alias priipecho="networksetup -getinfo Wi-Fi"
 
