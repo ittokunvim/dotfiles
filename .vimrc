@@ -33,9 +33,11 @@ set cursorline
 " =====================================
 "
 " my shortcut
+noremap ;init :e $MYVIMRC<CR> 
 noremap ;w :update<CR>
 noremap ;q :exit<CR>
 noremap ;e :Ex<CR>
+noremap ;t :tabe .<CR>
 
 " use emac key bind when insert mode
 inoremap <C-p> <Up>

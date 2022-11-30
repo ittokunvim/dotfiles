@@ -34,9 +34,11 @@ source .zshrc
 ```
 
 ### intall nvim
-次にテキストエディタの設定を行います。では下記のURLにアクセスして、`nvim`をインストールしましょう。
+
+次にテキストエディタの設定を行います。では下記のURLにアクセスして、`nvim`をインストールしましょう。`ruby`は言語サーバーに使います。
 
 > nvim: https://github.com/neovim/neovim/wiki/Installing-Neovim
+> ruby: https://www.ruby-lang.org/ja/downloads/
 
 `nvim`をインストールできたら、以下のコマンドを実行します。
 

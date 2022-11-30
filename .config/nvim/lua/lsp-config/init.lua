@@ -7,6 +7,7 @@ mason_config.setup {
 		'sumneko_lua',
 		'tsserver',
 		'cssls',
+		'solargraph',
 	},
 }
 
@@ -22,7 +23,7 @@ local on_attach = function(client, bufnr)
 	buf_map("<leader>a", "<Cmd>Lspsaga code_action<CR>")
 
 	vim.api.nvim_create_user_command("Format", function()
-		vim.lsp.buf.format() 
+		vim.lsp.buf.format()
 	end, {})
 buf_map("<leader>F", "<Cmd>Format<CR>")
 end
