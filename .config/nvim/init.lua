@@ -6,7 +6,6 @@ vim.cmd([[
 require('packer-config')
 require('packer-config.setup')
 
-require('fern-config')
 require('lualine-config')
 require('lsp-config')
 require('lsp-config.mason')

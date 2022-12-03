@@ -8,6 +8,7 @@ return require('packer').startup(function()
 	use 'sheerun/vim-polyglot'
 	use 'nvim-lualine/lualine.nvim'
 	use 'windwp/nvim-autopairs'
+	use 'mattn/emmet-vim'
 	-- filer
 	use 'lambdalisue/fern.vim'
 	use 'lambdalisue/nerdfont.vim'
