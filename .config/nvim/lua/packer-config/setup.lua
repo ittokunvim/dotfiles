@@ -1,12 +1,14 @@
 -- keymap
+local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', ';fzf', '<Cmd>Files<CR>', opts)
-vim.api.nvim_set_keymap('n', ';e', '<Cmd>Fern . -drawer<CR>', opts)
+map('n', ';fzf', '<Cmd>Files<CR>', opts)
+map('n', ';e', '<Cmd>Fern .<CR>', opts)
+map('n', ';h', '<Cmd>BufferPrevious<CR>', opts)
+map('n', ';l', '<Cmd>BufferNext<CR>', opts)
+map('n', ';c', '<Cmd>BufferClose<CR>', opts)
 
 -- colorscheme
-vim.cmd([[
-	colorscheme gruvbox
-]])
+vim.cmd('colorscheme material')
 
 -- fern
 vim.cmd([[
@@ -21,3 +23,5 @@ vim.cmd([[
 -- autopairs
 require("nvim-autopairs").setup {}
 
+-- lualine
+require("lualine").setup {}

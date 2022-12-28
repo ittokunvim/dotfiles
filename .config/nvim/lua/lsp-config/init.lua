@@ -8,6 +8,7 @@ mason_config.setup {
 		'tsserver',
 		'cssls',
 		'solargraph',
+		'rust_analyzer',
 	},
 }
 

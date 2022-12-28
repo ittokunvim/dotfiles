@@ -9,7 +9,7 @@
 " =====================================
 "
 " display line number
-set number
+set nonumber
 
 " auto indent when newline
 set autoindent
@@ -50,6 +50,6 @@ inoremap <C-d> <Del>
 inoremap <C-h> <BS>
 
 " split display
-nnoremap ss :<C-u>sp<CR><C-w>j
-nnoremap sv :<C-u>vs<CR><C-w>l
+nnoremap ;ss :<C-u>sp<CR><C-w>j
+nnoremap ;sv :<C-u>vs<CR><C-w>l
 

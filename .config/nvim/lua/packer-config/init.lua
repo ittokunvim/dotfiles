@@ -4,11 +4,15 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 	use 'luochen1990/rainbow'
 	use 'editorconfig/editorconfig-vim'
-	use 'morhetz/gruvbox'
+	use 'marko-cerovac/material.nvim'
 	use 'sheerun/vim-polyglot'
 	use 'nvim-lualine/lualine.nvim'
 	use 'windwp/nvim-autopairs'
 	use 'mattn/emmet-vim'
+	use 'tpope/vim-endwise'
+	-- tabline
+	use 'nvim-tree/nvim-web-devicons'
+	use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
 	-- filer
 	use 'lambdalisue/fern.vim'
 	use 'lambdalisue/nerdfont.vim'

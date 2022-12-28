@@ -31,5 +31,8 @@ ls.add_snippets("all", {
 	s('ejsout', {
 		t('<%= '), i(1), t(' %>')
 	}),
+	s('ejsinclude', {
+		t('<%- include('), i(1), t(') %>')
+	}),
 })
 
