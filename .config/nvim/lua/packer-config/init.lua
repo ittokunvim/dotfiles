@@ -1,6 +1,17 @@
-local use = require('packer').use
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+		vim.cmd [[packadd packer.nvim]]
+		return true
+	end
+	return false
+end
 
-return require('packer').startup(function()
+local packer_bootstrap = ensure_packer()
+
+return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use 'luochen1990/rainbow'
 	use 'editorconfig/editorconfig-vim'
@@ -10,6 +21,7 @@ return require('packer').startup(function()
 	use 'windwp/nvim-autopairs'
 	use 'mattn/emmet-vim'
 	use 'tpope/vim-endwise'
+	use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end}
 	-- tabline
 	use 'nvim-tree/nvim-web-devicons'
 	use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
@@ -35,5 +47,9 @@ return require('packer').startup(function()
 	use 'williamboman/mason-lspconfig'
 	use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
+
+	if packer_bootstrap then
+		require('packer').sync()
+	end
 end)
 
