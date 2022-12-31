@@ -6,6 +6,7 @@
 
 alias ..="cd .."
 alias ...="cd ../../"
+alias c="clear"
 alias d='docker'
 alias dc='docker-compose'
 alias ls="ls -G"

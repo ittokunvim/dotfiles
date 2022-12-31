@@ -7,7 +7,7 @@
 環境を構築するにはまずファイルが必要です。このリポジトリをダウンロードしましょう。
 
 ```shell
-git clone https://github.com/ittoku-ky73/dotfiles.git
+git clone https://github.com/ittokun/dotfiles.git
 ```
 
 ### install zsh
