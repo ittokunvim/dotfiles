@@ -3,7 +3,7 @@
 .gitconfig
 
 .config/cache
-
+.config/gh
 .config/neofetch
 .config/wireshark
 .config/iterm2

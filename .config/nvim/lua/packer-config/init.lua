@@ -13,18 +13,18 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
-	use 'luochen1990/rainbow'
 	use 'editorconfig/editorconfig-vim'
-	use 'marko-cerovac/material.nvim'
-	use 'sheerun/vim-polyglot'
-	use 'nvim-lualine/lualine.nvim'
 	use 'windwp/nvim-autopairs'
 	use 'mattn/emmet-vim'
 	use 'tpope/vim-endwise'
+	use 'nvim-treesitter/nvim-treesitter'
+	use 'nvim-lualine/lualine.nvim'
 	use {'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end}
+	-- colorscheme
+	use 'folke/tokyonight.nvim'
 	-- tabline
 	use 'nvim-tree/nvim-web-devicons'
-	use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+	use {'romgrk/barbar.nvim'}
 	-- filer
 	use 'lambdalisue/fern.vim'
 	use 'lambdalisue/nerdfont.vim'
