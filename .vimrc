@@ -37,7 +37,7 @@ noremap ;init :e $MYVIMRC<CR>
 noremap ;w :update<CR>
 noremap ;q :exit<CR>
 noremap ;e :Ex<CR>
-noremap ;t :tabe .<CR>
+noremap ;t :tabnew<CR>
 
 " use emac key bind when insert mode
 inoremap <C-p> <Up>
@@ -52,4 +52,3 @@ inoremap <C-h> <BS>
 " split display
 nnoremap ;ss :<C-u>sp<CR><C-w>j
 nnoremap ;sv :<C-u>vs<CR><C-w>l
-
