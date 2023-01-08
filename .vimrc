@@ -52,4 +52,3 @@ inoremap <C-h> <BS>
 " split display
 nnoremap ;ss :<C-u>sp<CR><C-w>j
 nnoremap ;sv :<C-u>vs<CR><C-w>l
-
