@@ -38,7 +38,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
-local opts = { on_attach = on_attach, capabilities = capabilities }
+local opts = {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
 
 mason_config.setup_handlers({
 	function(server_name)
@@ -50,6 +53,9 @@ mason_config.setup_handlers({
 				Lua = {
 					diagnostics = {
 						globals = { 'vim' },
+					},
+					completion = {
+						callSnippet = "Replace",
 					},
 				},
 			},

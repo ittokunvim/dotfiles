@@ -39,6 +39,10 @@ noremap ;q :exit<CR>
 noremap ;e :Ex<CR>
 noremap ;t :tabnew<CR>
 
+" split display
+nnoremap ;ss :<C-u>sp<CR><C-w>j
+nnoremap ;sv :<C-u>vs<CR><C-w>l
+
 " use emac key bind when insert mode
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
@@ -49,6 +53,7 @@ inoremap <C-e> <End>
 inoremap <C-d> <Del>
 inoremap <C-h> <BS>
 
-" split display
-nnoremap ;ss :<C-u>sp<CR><C-w>j
-nnoremap ;sv :<C-u>vs<CR><C-w>l
+" no yank with delete key
+nnoremap x "_x
+" nnoremap d "_d
+nnoremap D "_D

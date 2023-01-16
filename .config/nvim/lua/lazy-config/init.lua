@@ -12,11 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
+	"folke/neodev.nvim",
+	"dstein64/vim-startuptime",
 	"editorconfig/editorconfig-vim",
 	"windwp/nvim-autopairs",
+	"monaqa/dial.nvim",
 	"mattn/emmet-vim",
 	"tpope/vim-endwise",
-	"nvim-treesitter/nvim-treesitter",
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"tpope/vim-surround",
 	"tpope/vim-commentary",
 	"tpope/vim-fugitive",
@@ -59,5 +62,5 @@ require("lazy").setup {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons",
 		},
-	}
+	},
 }

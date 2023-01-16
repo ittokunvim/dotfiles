@@ -1,13 +1,12 @@
 local mason = require('mason')
+local opts = {}
 
-opt_mason = {
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗"
-		}
+opts.ui = {
+	icons = {
+		package_installed = "✓",
+		package_pending = "➜",
+		package_uninstalled = "✗"
 	}
 }
-mason.setup(opt_mason)
 
+mason.setup(opts)
