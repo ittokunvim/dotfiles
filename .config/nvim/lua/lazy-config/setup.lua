@@ -10,7 +10,7 @@ map('n', ';c', '<Cmd>BufferClose<CR>', opts)
 map("n", "+", dial_map.inc_normal(), opts)
 map("n", "-", dial_map.dec_normal(), opts)
 -- colorscheme
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme tokyonight-night')
 
 -- autopairs
 require("nvim-autopairs").setup {}
