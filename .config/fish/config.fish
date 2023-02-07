@@ -1,4 +1,5 @@
 if status is-interactive
+	alias ...="cd ../../"
 	alias c="clear"
 	alias d='docker'
 	alias dc='docker-compose'

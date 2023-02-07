@@ -1,8 +1,19 @@
 # dotfiles
 
-このリポジトリでは、開発のための設定ファイルが置かれています。以下の指示に従って自分自身の環境にインストールしてください。
+このリポジトリは、開発のための設定ファイルが置かれています。
+以下の指示に従って環境をインストールしましょう。
 
-### fetch dotfiles
+## 準備：homebrewをインストールする
+
+設定ファイルをインポートする前にまず、パッケージマネージャをインストールします。
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+上記のコマンドでうまく動作しなかったら、[homebrew](https://brew.sh/index_ja)にアクセスして、そこの指示に従ってインストールしましょう。
+
+### ドットファイルを取得する
 
 環境を構築するにはまずファイルが必要です。このリポジトリをダウンロードしましょう。
 
@@ -10,48 +21,17 @@
 git clone https://github.com/ittokun/dotfiles.git
 ```
 
-### install zsh
+ダウンロードが終えたら、以下のファイルを自分のPCの環境に落としていきましょう。
 
-次に、シェルの設定を行います。Zshを使用します。以下の手順でインストールしましょう。
+- .config/
+- .warp/themes
+- .vimrc
 
-> 以下の手順を踏む前に、以下のコマンドが必要になります。それぞれインストールしておきましょう。
->
-> - zsh：https://wiki.archlinux.jp/index.php/Zsh
-> - zplug：https://github.com/zplug/zplug
->
-> - starship：https://starship.rs/
+次は、homebrewにパッケージをインストールしていきます。`.config/homebrew/`に移動して以下のコマンドを実行します。
 
-1. ホームディレクトリに移動してZshのシンボリックリンクを貼ります。
-
-```shell
-ln -s PATH/TO/dotfiles/.zshrc ~/ && ln -s PATH/TO/dotfiles/.zsh ~/
+```bash
+brew bundle
 ```
 
-2. zshを読み込みます。
-
-```shell
-source .zshrc
-```
-
-### intall nvim
-
-次にテキストエディタの設定を行います。では下記のURLにアクセスして、`nvim`をインストールしましょう。`ruby`は言語サーバーに使います。
-
-> nvim: https://github.com/neovim/neovim/wiki/Installing-Neovim
-> ruby: https://www.ruby-lang.org/ja/downloads/
-
-`nvim`をインストールできたら、以下のコマンドを実行します。
-
-```shell
-nvim
-```
-
-次に、プラグインをインストールしていきます。
-
-```shell
-nvim
-# vim command
-:PackerInstall
-```
-
-これでOKのはず👏
+うまくいけば、Brewfileに書かれたパッケージ群をインストールできているはずです。
+あとは、インストールされたパッケージを使用するだけです。お疲れ様でした🤟
