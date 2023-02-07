@@ -16,8 +16,6 @@ require("lazy").setup {
 	"dstein64/vim-startuptime",
 	"editorconfig/editorconfig-vim",
 	"windwp/nvim-autopairs",
-	"monaqa/dial.nvim",
-	"mattn/emmet-vim",
 	"tpope/vim-endwise",
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"tpope/vim-surround",

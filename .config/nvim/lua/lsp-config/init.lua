@@ -8,8 +8,8 @@ mason_config.setup {
 		'sumneko_lua',
 		'tsserver',
 		'cssls',
-		'solargraph',
 		'rust_analyzer',
+		'jsonls',
 	},
 }
 

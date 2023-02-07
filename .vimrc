@@ -29,6 +29,15 @@ set clipboard=unnamed
 " cursor line
 set cursorline
 
+" changed leader key (\)
+let mapleader = " "
+
+" CapsLock -> Ctrl
+filetype plugin indent on
+syntax on
+set encoding=utf-8
+set clipboard=unnamedplus
+
 " key bindings
 " =====================================
 "
@@ -42,6 +51,13 @@ noremap ;t :tabnew<CR>
 " split display
 nnoremap ;ss :<C-u>sp<CR><C-w>j
 nnoremap ;sv :<C-u>vs<CR><C-w>l
+" increment and decrement
+nnoremap + <C-a>
+nnoremap - <C-x>
+" select all
+nnoremap <C-a> gg<S-v>G
+
+nnoremap <C-w> <C-w>w
 
 " use emac key bind when insert mode
 inoremap <C-p> <Up>

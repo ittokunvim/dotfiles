@@ -1,14 +1,11 @@
 -- keymap
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-local dial_map = require("dial.map");
-map('n', ';fzf', '<Cmd>Files<CR>', opts)
+map('n', ';f', '<Cmd>Files<CR>', opts)
 map('n', ';e', '<Cmd>Neotree<CR>', opts)
 map('n', ';h', '<Cmd>BufferPrevious<CR>', opts)
 map('n', ';l', '<Cmd>BufferNext<CR>', opts)
 map('n', ';c', '<Cmd>BufferClose<CR>', opts)
-map("n", "+", dial_map.inc_normal(), opts)
-map("n", "-", dial_map.dec_normal(), opts)
 -- colorscheme
 vim.cmd('colorscheme tokyonight-night')
 
@@ -22,9 +19,9 @@ require("lspsaga").setup {}
 require("neodev").setup {}
 
 -- babecue
-require("barbecue").setup {
-	attach_navic = false,
-}
+-- require("barbecue").setup {
+-- 	attach_navic = false
+-- }
 
 -- lualine
 require("lualine").setup {
@@ -43,8 +40,12 @@ require("neo-tree").setup {
 
 -- nvim-treesitter
 require("nvim-treesitter.configs").setup {
-	ensure_installed = { 'c', 'html', 'javascript', 'json', 'lua', 'markdown', 'markdown_inline', 'ruby', 'rust', 'toml', 'typescript', 'vim' },
+	ensure_installed = { 'bash', 'c', 'css', 'html', 'javascript', 'json', 'lua', 'markdown', 'markdown_inline', 'ruby', 'rust', 'toml', 'tsx', 'typescript', 'vim' },
 	highlight = {
 		enable = true,
+	},
+	indent = {
+		enable = true,
+		disable = { "python", "c" }
 	}
 }
