@@ -7,16 +7,16 @@ map('n', ';h', '<Cmd>BufferPrevious<CR>', opts)
 map('n', ';l', '<Cmd>BufferNext<CR>', opts)
 map('n', ';c', '<Cmd>BufferClose<CR>', opts)
 -- colorscheme
-vim.cmd('colorscheme tokyonight-night')
+-- vim.cmd('colorscheme tokyonight-night')
 
 -- autopairs
 require("nvim-autopairs").setup {}
 
 -- lspsaga
-require("lspsaga").setup {}
+-- require("lspsaga").setup {}
 
 -- neodev
-require("neodev").setup {}
+-- require("neodev").setup {}
 
 -- babecue
 -- require("barbecue").setup {

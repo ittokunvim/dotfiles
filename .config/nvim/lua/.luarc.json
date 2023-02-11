@@ -9,5 +9,6 @@
         "vim",
         "bar",
         "test"
-    ]
+    ],
+    "completion.autoRequire": false
 }
