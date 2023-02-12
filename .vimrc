@@ -42,15 +42,14 @@ set clipboard=unnamedplus
 " =====================================
 "
 " my shortcut
-noremap ;init :e $MYVIMRC<CR> 
-noremap ;w :update<CR>
-noremap ;q :exit<CR>
-noremap ;e :Ex<CR>
-noremap ;t :tabnew<CR>
+noremap <leader>w :update<CR>
+noremap <leader>q :exit<CR>
+noremap <leader>e :Ex<CR>
+noremap <leader>t :tabnew<CR>
 
 " split display
-nnoremap ;ss :<C-u>sp<CR><C-w>j
-nnoremap ;sv :<C-u>vs<CR><C-w>l
+nnoremap <leader>ss :<C-u>sp<CR><C-w>j
+nnoremap <leader>sv :<C-u>vs<CR><C-w>l
 " increment and decrement
 nnoremap + <C-a>
 nnoremap - <C-x>

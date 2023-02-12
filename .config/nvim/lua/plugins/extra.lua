@@ -27,4 +27,17 @@ return {
 
   -- comment out
   "tpope/vim-commentary",
+
+  -- MarkDown Preview
+  {
+    "iamcco/markdown-preview.nvim",
+    keys = {
+      { "<leader>mdp", "<cmd>MarkdownPreview<cr>", desc = "MarkDown Preview" },
+    },
+    build = "cd app && npm install",
+    ft = { "markdown" },
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+  },
 }

@@ -24,12 +24,12 @@ return {
 	-- "saadparwaiz1/cmp_luasnip",
 	-- "glepnir/lspsaga.nvim",
 	-- markdown
-	{ "iamcco/markdown-preview.nvim",    build = function() vim.fn["mkdp#util#install"]() end },
+	-- { "iamcco/markdown-preview.nvim",    build = function() vim.fn["mkdp#util#install"]() end },
 	-- lualine
-	{ "nvim-lualine/lualine.nvim",       dependencies = "nvim-tree/nvim-web-devicons" },
+	-- { "nvim-lualine/lualine.nvim",       dependencies = "nvim-tree/nvim-web-devicons" },
 	-- fzf
-	{ "junegunn/fzf",                    build = ":call fzf#install()" },
-	"junegunn/fzf.vim",
+	-- { "junegunn/fzf",                    build = ":call fzf#install()" },
+	-- "junegunn/fzf.vim",
 	-- filer
 	-- {
 	-- 	"nvim-neo-tree/neo-tree.nvim",

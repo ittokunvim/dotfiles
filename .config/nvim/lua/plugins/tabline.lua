@@ -7,6 +7,7 @@ return {
   keys = {
     { "<leader>bn", "<cmd>BufferNext<cr>", desc = "Tab Next" },
     { "<leader>bc", "<cmd>BufferClose<cr>", desc = "Tab Close" },
+    { "<leader>bp", "<cmd>BufferPin<cr>", desc = "Tab Pin" },
   },
   opts = {
     animation = true,
@@ -18,6 +19,7 @@ return {
     highlight_visible = true,
     icons = true,
     icon_custom_colors = true,
+    icon_pinned = ''
   },
   config = function(plugin, opts)
     require("bufferline").setup(opts)
