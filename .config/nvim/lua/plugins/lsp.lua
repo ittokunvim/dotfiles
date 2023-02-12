@@ -17,7 +17,7 @@ return {
     servers = {
       jsonls = {},
       rust_analyzer = {},
-      sumneko_lua = {
+      lua_ls = {
         settings = {
           Lua = {
             workspace = {
