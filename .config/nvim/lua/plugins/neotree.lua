@@ -6,7 +6,9 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	cmd = "Neotree",
-  keys = { { "<leader>e", "<cmd>NeoTreeShowInSplitToggle<cr>", desc = "NeoTree" }, },
+  keys = {
+    { "<leader>e", "<cmd>NeoTreeShowInSplitToggle<cr>", desc = "NeoTree" },
+  },
   config = function()
     require("neo-tree").setup()
   end,

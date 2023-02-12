@@ -16,6 +16,7 @@ return {
     },
     servers = {
       jsonls = {},
+      rust_analyzer = {},
       sumneko_lua = {
         settings = {
           Lua = {
@@ -28,6 +29,7 @@ return {
           },
         },
       },
+      tsserver = {},
     },
     setup = {},
   },

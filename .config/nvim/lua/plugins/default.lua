@@ -1,18 +1,18 @@
 return {
 	-- "folke/neodev.nvim",
 	-- "dstein64/vim-startuptime",
-	"editorconfig/editorconfig-vim",
-	"windwp/nvim-autopairs",
-	"tpope/vim-endwise",
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	"tpope/vim-surround",
-	"tpope/vim-commentary",
-	"tpope/vim-fugitive",
+	-- "editorconfig/editorconfig-vim",
+	-- "windwp/nvim-autopairs",
+	-- "tpope/vim-endwise",
+	-- { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	-- "tpope/vim-surround",
+	-- "tpope/vim-commentary",
+	-- "tpope/vim-fugitive",
 	-- colorscheme
 	-- "folke/tokyonight.nvim",
 	-- tabline
-	"nvim-tree/nvim-web-devicons",
-	"romgrk/barbar.nvim",
+	-- "nvim-tree/nvim-web-devicons",
+	-- "romgrk/barbar.nvim",
 	-- lsp
 	-- "neovim/nvim-lspconfig",
 	-- "hrsh7th/nvim-cmp",
