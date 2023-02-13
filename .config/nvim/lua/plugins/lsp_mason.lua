@@ -3,10 +3,6 @@ return {
   dependencies = {
     "jose-elias-alvarez/null-ls.nvim",
   },
-  cmd = "Mason",
-  keys = {
-    { "<leader>ms", "<cmd>Mason<cr>", desc = "Mason" }
-  },
   opts = {
     ensure_installed = {
       "stylua",

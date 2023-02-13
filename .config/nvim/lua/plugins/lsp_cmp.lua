@@ -34,4 +34,3 @@ return  {
     cmp.setup(opts)
   end
 }
-
