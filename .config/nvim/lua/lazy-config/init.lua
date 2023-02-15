@@ -11,12 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.api.nvim_create_user_command("Format", function()
-  vim.lsp.buf.format()
-end, {})
-
-vim.keymap.set("n", "<leader>f", "<Cmd>Format<CR>")
-
 require("lazy").setup({
     { import = "plugins" },
 })

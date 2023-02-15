@@ -14,17 +14,9 @@ return {
       delete_check_events = "TextChanged",
     },
     keys = {
-      {
-        "<tab>",
-        function()
-          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-        end,
-        expr = true,
-        silent = true,
-        mode = "i",
-      },
-      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
-      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = {"i", "s" } },
+      { "<tab>", function() return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>" end, expr = true, silent = true, mode = "i", },
+      { "<tab>",   function() require("luasnip").jump(1) end,   mode = "s" },
+      { "<s-tab>", function() require("luasnip").jump( -1) end, mode = { "i", "s" } },
     }
   },
 
@@ -58,7 +50,7 @@ return {
       })
 
       opts.sources = cmp.config.sources({
-        { name = "nvim_lsp"},
+        { name = "nvim_lsp" },
         { name = "luasnip" },
       })
 
@@ -68,23 +60,23 @@ return {
 
   -- built-in LSP plugin
   {
-  "glepnir/lspsaga.nvim",
-  event = "BufRead",
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    "nvim-treesitter/nvim-treesitter",
+    "glepnir/lspsaga.nvim",
+    event = "BufRead",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    keys = {
+      { "<leader>sf", "<cmd>Lspsaga lsp_finder<cr>",           desc = "Lspsaga finder" },
+      { "<leader>sh", "<cmd>Lspsaga hover_doc<cr>",            desc = "Lspsaga doc" },
+      { "<leader>sr", "<cmd>Lspsaga rename<cr>",               desc = "Lspsaga rename" },
+      { "<leader>sd", "<cmd>Lspsaga show_buf_diagnostics<cr>", desc = "Lspsaga diagnostic" },
+      { "<leader>st", "<cmd>Lspsaga term_toggle<cr>",          desc = "Lspsaga terminal" },
+    },
+    config = function()
+      require("lspsaga").setup({})
+    end
   },
-  keys = {
-    { "<leader>sf", "<cmd>Lspsaga lsp_finder<cr>",           desc = "Lspsaga finder" },
-    { "<leader>sh", "<cmd>Lspsaga hover_doc<cr>",            desc = "Lspsaga doc" },
-    { "<leader>sr", "<cmd>Lspsaga rename<cr>",               desc = "Lspsaga rename" },
-    { "<leader>sn", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Lspsaga diagnostic" },
-    { "<leader>st", "<cmd>Lspsaga term_toggle<cr>",          desc = "Lspsaga terminal" },
-  },
-  config = function()
-    require("lspsaga").setup({})
-  end
-},
 
   -- Auto Pair plugin
   {
@@ -94,6 +86,14 @@ return {
     },
     config = function(plugin, opts)
       require("nvim-autopairs").setup(opts)
+    end
+  },
+
+  -- autoclose and autorename html tag
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup({})
     end
   },
 
