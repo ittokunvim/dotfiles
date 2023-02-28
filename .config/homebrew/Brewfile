@@ -22,7 +22,7 @@ brew "ruby"
 brew "trash-cli"
 brew "tree"
 brew "wget"
-brew "youtube-dl"
+brew "youtube-dlc"
 
 cask "appcleaner"
 cask "brave-browser"

@@ -10,5 +10,5 @@ if status is-interactive
 	alias du-cd="du -sm ./* | sort -rn | head" 
 	alias groipecho="curl ifconfig.io"
 	alias priipecho="networksetup -getinfo Wi-Fi"
-  alias lg="lazygit"
+	alias lg="lazygit"
 end
