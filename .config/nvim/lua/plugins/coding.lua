@@ -44,7 +44,7 @@ return {
       opts.mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-l>'] = cmp.mapping.complete(),
+        ['<C-l>'] = cmp.mapping.complete({}),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>']  = cmp.mapping.confirm { select = true },
       })
@@ -70,12 +70,27 @@ return {
       { "<leader>sf", "<cmd>Lspsaga lsp_finder<cr>",           desc = "Lspsaga finder" },
       { "<leader>sh", "<cmd>Lspsaga hover_doc<cr>",            desc = "Lspsaga doc" },
       { "<leader>sr", "<cmd>Lspsaga rename<cr>",               desc = "Lspsaga rename" },
-      { "<leader>sd", "<cmd>Lspsaga show_buf_diagnostics<cr>", desc = "Lspsaga diagnostic" },
+      { "<leader>sa", "<cmd>Lspsaga code_action<cr>",          desc = "Lspsaga code action" },
+      { "<leader>s[", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Lspsaga diagnostic prev" },
+      { "<leader>s]", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Lspsaga diagnostic next" },
       { "<leader>st", "<cmd>Lspsaga term_toggle<cr>",          desc = "Lspsaga terminal" },
     },
-    config = function()
-      require("lspsaga").setup({})
-    end
+    opts = {
+      ui = {
+        -- This option only works in Neovim 0.9
+        title = true,
+        -- Border type can be single, double, rounded, solid, shadow.
+        border = "single",
+        winblend = 0,
+        expand = "",
+        collapse = "",
+        code_action = "",
+        incoming = " ",
+        outgoing = " ",
+        hover = ' ',
+        kind = {},
+      }
+    },
   },
 
   -- Auto Pair plugin

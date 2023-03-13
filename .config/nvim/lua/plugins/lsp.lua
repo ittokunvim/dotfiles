@@ -18,6 +18,7 @@ return {
         timeout_ms = nil,
       },
       servers = {
+        cssls = {},
         jsonls = {},
         rust_analyzer = {},
         lua_ls = {
@@ -87,10 +88,10 @@ return {
     },
     opts = {
       ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "flake8",
+        -- "stylua",
+        -- "shellcheck",
+        -- "shfmt",
+        -- "flake8",
       },
     },
     config = function(plugin, opts)

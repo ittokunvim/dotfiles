@@ -29,14 +29,14 @@ return {
         },
         footer = [[Plugin Keymaps
 
-noremap                             | inoremap
-  <leader>sut - StartupTime         | gc    - Comment
-  <leader>mdp - MarkdownPreview     | <C-p> - LspCmp Select Prev
-  <leader>s   - Lspsaga             | <C-n> - LspCmp Select Next
-  <leader>e   - Neotree             | <C-l> - LspCmp Complete
-  <leader>f   - Telescope           | <C-e> - LspCmp Abort
-  <leader>b   - Bufferline (barbar) | <CR>  - LspCmp Confirm
-                                      <tab> - LuaSnip
+noremap                             │ inoremap
+  <leader>sut - StartupTime         │ gc    - Comment
+  <leader>mdp - MarkdownPreview     │ <C-p> - LspCmp Select Prev
+  <leader>s   - Lspsaga             │ <C-n> - LspCmp Select Next
+  <leader>e   - Neotree             │ <C-l> - LspCmp Complete
+  <leader>f   - Telescope           │ <C-e> - LspCmp Abort
+  <leader>b   - Bufferline (barbar) │ <CR>  - LspCmp Confirm
+                                    │ <tab> - LuaSnip
       ]],
       }
     end,
@@ -67,7 +67,8 @@ noremap                             | inoremap
       "nvim-tree/nvim-web-devicons",
     },
     keys = {
-      { "<leader>bn", "<cmd>BufferNext<cr>", desc = "Tab Next" },
+      { "<leader>b[", "<cmd>BufferPrevious<cr>", desc = "Tab Prev" },
+      { "<leader>b]", "<cmd>BufferNext<cr>", desc = "Tab Next" },
       { "<leader>bc", "<cmd>BufferClose<cr>", desc = "Tab Close" },
       { "<leader>bp", "<cmd>BufferPin<cr>", desc = "Tab Pin" },
     },

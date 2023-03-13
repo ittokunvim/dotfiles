@@ -59,7 +59,7 @@ return {
         delete       = { text = '' },
         topdelete    = { text = '' },
         changedelete = { text = '~' },
-        untracked    = { text = '' },
+        untracked    = { text = '│' },
       },
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
@@ -68,8 +68,9 @@ return {
         end
 
         map("n", "<leader>gh", gs.preview_hunk, "Preview Hunk")
+        map("n", "<leader>gs", gs.stage_hunk, "Stage Hunk")
         map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
       end
     }
-  }
+  },
 }
