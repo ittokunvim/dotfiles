@@ -13,5 +13,5 @@ if status is-interactive
 	alias relog="exec $SHELL -l"
 	alias du-cd="du -sm ./* | sort -rn | head" 
 	alias echo-ip-gro="curl ifconfig.io"
-	alias priipecho echo-ip-pri="networksetup -getinfo Wi-Fi"
+	alias echo-ip-pri="networksetup -getinfo Wi-Fi"
 end
