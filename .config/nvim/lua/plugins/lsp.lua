@@ -80,7 +80,33 @@ return {
     end,
   },
 
-  -- LSP servers
+  -- Formatters
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    keys = {
+      { "<leader>lf", vim.lsp.buf.format }
+    },
+    dependencies = {
+      "mason.nvim",
+    },
+    opts = function()
+      local nls = require("null-ls")
+      return {
+        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+        sources = {
+          nls.builtins.formatting.fish_indent,
+          nls.builtins.diagnostics.fish,
+          nls.builtins.formatting.stylua,
+          nls.builtins.formatting.shfmt,
+          nls.builtins.formatting.flake8,
+        },
+      }
+    end,
+  },
+
+
+  -- Cmdline tools and LSP servers
   {
     "williamboman/mason.nvim",
     dependencies = {
@@ -88,26 +114,22 @@ return {
     },
     opts = {
       ensure_installed = {
-        -- "stylua",
-        -- "shellcheck",
-        -- "shfmt",
-        -- "flake8",
+        "stylua",
+        "shellcheck",
+        "shfmt",
+        "flake8",
       },
     },
     config = function(plugin, opts)
-      local m = require("mason")
-      local mp = require("mason-core.package")
+      require("mason").setup(opts)
       local mr = require("mason-registry")
 
-      local null_sources = {}
       for _, tool in ipairs(opts.ensure_installed) do
         local p = mr.get_package(tool)
         if not p:is_installed() then
           p:install()
         end
       end
-
-      m.setup(opts)
     end,
   },
 }

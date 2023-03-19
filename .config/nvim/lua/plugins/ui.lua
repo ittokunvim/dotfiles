@@ -36,7 +36,7 @@ noremap                             │ inoremap
   <leader>e   - Neotree             │ <C-l> - LspCmp Complete
   <leader>f   - Telescope           │ <C-e> - LspCmp Abort
   <leader>b   - Bufferline (barbar) │ <CR>  - LspCmp Confirm
-                                    │ <tab> - LuaSnip
+  <leader>lf  - LspFormat           │ <tab> - LuaSnip
       ]],
       }
     end,
