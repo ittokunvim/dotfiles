@@ -56,7 +56,7 @@ noremap                             │ inoremap
     },
     config = function(plugin, opts)
       require("mini.indentscope").setup(opts)
-    end
+    end,
   },
 
   -- Tab Line
@@ -68,9 +68,9 @@ noremap                             │ inoremap
     },
     keys = {
       { "<leader>b[", "<cmd>BufferPrevious<cr>", desc = "Tab Prev" },
-      { "<leader>b]", "<cmd>BufferNext<cr>", desc = "Tab Next" },
-      { "<leader>bc", "<cmd>BufferClose<cr>", desc = "Tab Close" },
-      { "<leader>bp", "<cmd>BufferPin<cr>", desc = "Tab Pin" },
+      { "<leader>b]", "<cmd>BufferNext<cr>",     desc = "Tab Next" },
+      { "<leader>bc", "<cmd>BufferClose<cr>",    desc = "Tab Close" },
+      { "<leader>bp", "<cmd>BufferPin<cr>",      desc = "Tab Pin" },
     },
     opts = {
       animation = true,
@@ -82,11 +82,11 @@ noremap                             │ inoremap
       highlight_visible = true,
       icons = true,
       icon_custom_colors = true,
-      icon_pinned = ''
+      icon_pinned = "",
     },
     config = function(plugin, opts)
       require("bufferline").setup(opts)
-    end
+    end,
   },
 
   -- Winbar
@@ -96,7 +96,7 @@ noremap                             │ inoremap
       "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
     },
-    opts = {}
+    opts = {},
   },
 
   -- Status line
@@ -108,28 +108,28 @@ noremap                             │ inoremap
     opts = {
       options = {
         theme = "tokyonight",
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { "filename" },
+        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
     },
     config = function(plugins, opts)
       require("lualine").setup(opts)
-    end
+    end,
   },
 }

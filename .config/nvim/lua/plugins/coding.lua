@@ -13,11 +13,15 @@ return {
       history = true,
       delete_check_events = "TextChanged",
     },
-    keys = {
-      { "<tab>", function() return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>" end, expr = true, silent = true, mode = "i", },
-      { "<tab>",   function() require("luasnip").jump(1) end,   mode = "s" },
-      { "<s-tab>", function() require("luasnip").jump( -1) end, mode = { "i", "s" } },
-    }
+    keys = function()
+      local snip = require("luasnip")
+
+      return {
+        { "<tab>", function() return snip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>" end, expr = true, silent = true, mode = "i", },
+        { "<tab>", function() snip.jump(1) end, mode = "s", },
+        { "<s-tab>", function() snip.jump(-1) end, mode = { "i", "s" }, },
+      }
+    end,
   },
 
   -- Auto Completion
@@ -42,11 +46,11 @@ return {
       local cmp = require("cmp")
 
       opts.mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-l>'] = cmp.mapping.complete({}),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>']  = cmp.mapping.confirm { select = true },
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-l>"] = cmp.mapping.complete({}),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
       })
 
       opts.sources = cmp.config.sources({
@@ -55,7 +59,7 @@ return {
       })
 
       cmp.setup(opts)
-    end
+    end,
   },
 
   -- built-in LSP plugin
@@ -87,9 +91,9 @@ return {
         code_action = "",
         incoming = " ",
         outgoing = " ",
-        hover = ' ',
+        hover = " ",
         kind = {},
-      }
+      },
     },
   },
 
@@ -101,7 +105,7 @@ return {
     },
     config = function(plugin, opts)
       require("nvim-autopairs").setup(opts)
-    end
+    end,
   },
 
   -- autoclose and autorename html tag
@@ -109,7 +113,7 @@ return {
     "windwp/nvim-ts-autotag",
     config = function()
       require("nvim-ts-autotag").setup({})
-    end
+    end,
   },
 
   -- Auto Close (if, do, def, endif)

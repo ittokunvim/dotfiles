@@ -22,13 +22,13 @@ return {
     },
     -- experimental feature
     indent = {
-      enable = true
+      enable = true,
     },
     autotag = {
-      enable = true
+      enable = true,
     },
   },
   config = function(plugin, opts)
     require("nvim-treesitter.configs").setup(opts)
-  end
+  end,
 }

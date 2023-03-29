@@ -25,7 +25,7 @@ return {
     cmd = "Telescope",
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope Files" },
-      { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Telescope Grep" }
+      { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "Telescope Grep" },
     },
     opts = {
       defaults = {
@@ -35,7 +35,7 @@ return {
     },
     config = function(plugin, opts)
       require("telescope").setup(opts)
-    end
+    end,
   },
 
   -- Keymap Hint
@@ -54,12 +54,12 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       signs = {
-        add          = { text = '' },
-        change       = { text = '~' },
-        delete       = { text = '' },
-        topdelete    = { text = '' },
-        changedelete = { text = '~' },
-        untracked    = { text = '│' },
+        add = { text = "" },
+        change = { text = "~" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "~" },
+        untracked = { text = "│" },
       },
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
@@ -69,8 +69,10 @@ return {
 
         map("n", "<leader>gh", gs.preview_hunk, "Preview Hunk")
         map("n", "<leader>gs", gs.stage_hunk, "Stage Hunk")
-        map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
-      end
-    }
+        map("n", "<leader>gb", function()
+          gs.blame_line({ full = true })
+        end, "Blame Line")
+      end,
+    },
   },
 }
