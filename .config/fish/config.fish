@@ -6,6 +6,7 @@ if status is-interactive
 	alias lg="lazygit"
 
 	alias bat="bat --theme=base16"
+	alias cat="bat --theme=base16"
 	alias grep="rg"
 	alias ls="lsd"
 	alias rm="trash"
