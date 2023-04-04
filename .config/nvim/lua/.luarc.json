@@ -3,7 +3,8 @@
     "Lua.diagnostics.disable": [
         "unused-function",
         "unused-local",
-        "unbalanced-assignments"
+        "unbalanced-assignments",
+        "assign-type-mismatch"
     ],
     "Lua.diagnostics.globals": [
         "vim",
