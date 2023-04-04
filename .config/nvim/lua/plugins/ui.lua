@@ -80,9 +80,11 @@ noremap                             │ inoremap
       clickable = true,
       highlight_inactive_file_icons = true,
       highlight_visible = true,
-      icons = true,
-      icon_custom_colors = true,
-      icon_pinned = "",
+      icons = {
+        filetype = { enabled = true },
+        custom_colors = true,
+        pinned = "",
+      },
     },
     config = function(plugin, opts)
       require("bufferline").setup(opts)
