@@ -5,5 +5,5 @@ function yt-dl-wav
         return 1
     end
 
-    youtube-dlc --ignore-errors -x --audio-format wav -o '%(title)s.%(ext)s' $argv
+    youtube-dl --ignore-errors -x --audio-format wav -o '%(title)s.%(ext)s' $argv
 end

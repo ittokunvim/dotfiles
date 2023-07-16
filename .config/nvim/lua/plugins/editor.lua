@@ -9,7 +9,17 @@ return {
     },
     cmd = "Neotree",
     keys = {
-      { "<leader>e", "<cmd>NeoTreeShowInSplitToggle<cr>", desc = "NeoTree" },
+      {
+        "<leader>e",
+        function()
+          require("neo-tree.command").execute({
+            action = "show",
+            toggle = true,
+            position = "current",
+          })
+        end,
+        desc = "NeoTree",
+      },
     },
     config = function()
       require("neo-tree").setup()

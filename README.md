@@ -3,35 +3,43 @@
 このリポジトリは、開発のための設定ファイルが置かれています。
 以下の指示に従って環境をインストールしましょう。
 
-## 準備：homebrewをインストールする
+### homebrewをインストールする
 
 設定ファイルをインポートする前にまず、パッケージマネージャをインストールします。
 
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+インストールするには[homebrew](https://brew.sh/index_ja)にアクセスして、その手順に従います。
 
-上記のコマンドでうまく動作しなかったら、[homebrew](https://brew.sh/index_ja)にアクセスして、そこの指示に従ってインストールしましょう。
-
-### ドットファイルを取得する
+### クローンする
 
 環境を構築するにはまずファイルが必要です。このリポジトリをダウンロードしましょう。
 
 ```shell
 git clone https://github.com/ittokun/dotfiles.git
+cd dotfiles
 ```
 
-ダウンロードが終えたら、以下のファイルを自分のPCの環境に落としていきましょう。
+### パッケージをインストールする
 
-- .config/
-- .warp/themes
-- .vimrc
-
-次は、homebrewにパッケージをインストールしていきます。`.config/homebrew/`に移動して以下のコマンドを実行します。
+クローンできたら、以下のコマンドを実行してパッケージを一括インストールします。
 
 ```bash
+cd .config/homebrew
 brew bundle
 ```
 
-うまくいけば、Brewfileに書かれたパッケージ群をインストールできているはずです。
-あとは、インストールされたパッケージを使用するだけです。お疲れ様でした🤟
+### 設定ファイルを落とす
+
+パッケージをインストールし終えたら、以下のコマンドを実行してシンボリックリンクを貼ります。
+
+```bash
+cd ~/
+ln -s DOTFILES_PATH/.config/ ./.config
+ln -s DOTFILES_PATH/.warp/ ./.warp
+ln -s DOTFILES_PATH/.vimrc ./.vimrc
+```
+
+### 確認する
+
+ここまでうまくいけば、`fish, nvim`がうまいこと設定されているはずです。
+
+設定されていれば成功です。お疲れ様でした🤙

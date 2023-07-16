@@ -46,6 +46,11 @@ return {
       local cmp = require("cmp")
 
       table.insert(opts.sources, 1, { name = "copilot" })
+      opts.sources = cmp.config.sources({
+        { name = "copilot" },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+      })
 
       local confirm = opts.mapping["<CR>"]
       local confirm_copilot = cmp.mapping.confirm({

@@ -76,14 +76,15 @@ noremap                             │ inoremap
       animation = true,
       auto_hide = true,
       tabpages = true,
-      closable = true,
       clickable = true,
       highlight_inactive_file_icons = true,
       highlight_visible = true,
       icons = {
-        filetype = { enabled = true },
-        custom_colors = true,
-        pinned = "",
+        filetype = {
+          custom_colors = true,
+          enabled = true
+        },
+        pinned = { button = "", filename = true },
       },
     },
     config = function(plugin, opts)
