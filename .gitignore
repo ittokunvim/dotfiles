@@ -2,6 +2,7 @@
 
 .gitconfig
 
+.config/configstore
 .config/github-copilot
 .config/neofetch
 .config/iterm2
