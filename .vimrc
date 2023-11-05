@@ -29,6 +29,10 @@ set clipboard=unnamed
 " cursor line
 set cursorline
 
+" search ignore case
+set ignorecase
+set smartcase
+
 " changed leader key (\)
 let mapleader = " "
 
