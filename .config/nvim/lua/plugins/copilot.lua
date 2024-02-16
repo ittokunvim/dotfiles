@@ -19,7 +19,6 @@ return {
       },
     },
   },
-
   -- copilot cmp source
   {
     "nvim-cmp",
@@ -30,6 +29,7 @@ return {
         opts = {},
         config = function(_, opts)
           local copilot_cmp = require("copilot_cmp")
+
           copilot_cmp.setup(opts)
           -- attach cmp source whenever copilot attaches
           -- fixes lazy-loading issues with the copilot cmp source
@@ -44,6 +44,11 @@ return {
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
+      local confirm = opts.mapping["<CR>"]
+      local confirm_copilot = cmp.mapping.confirm({
+        select = true,
+        behavior = cmp.ConfirmBehavior.Replace,
+      })
 
       table.insert(opts.sources, 1, { name = "copilot" })
       opts.sources = cmp.config.sources({
@@ -51,13 +56,6 @@ return {
         { name = "copilot" },
         { name = "luasnip" },
       })
-
-      local confirm = opts.mapping["<CR>"]
-      local confirm_copilot = cmp.mapping.confirm({
-        select = true,
-        behavior = cmp.ConfirmBehavior.Replace,
-      })
-
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<CR>"] = function(...)
           local entry = cmp.get_selected_entry()

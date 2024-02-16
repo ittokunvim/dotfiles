@@ -1,16 +1,15 @@
 return {
-
   -- Starter
   {
     "echasnovski/mini.starter",
     version = false,
     opts = function()
       local logo = table.concat({
-        "III TTTTTT TTTTTT  OOO  K  K U   U N   N",
-        " I    TT     TT   O   O K K  U   U NN  N",
-        " I    TT     TT   O   O KK   U   U N N N",
-        " I    TT     TT   O   O K K  U   U N  NN",
-        "III   TT     TT    OOO  K  K  UUU  N   N",
+        "III TTTTTT TTTTTT  OOO  K  K U   U N   N V     V III M   M",
+        " I    TT     TT   O   O K K  U   U NN  N V     V  I  MM MM",
+        " I    TT     TT   O   O KK   U   U N N N  V   V   I  M M M",
+        " I    TT     TT   O   O K K  U   U N  NN   V V    I  M   M",
+        "III   TT     TT    OOO  K  K  UUU  N   N    V    III M   M",
       }, "\n")
       local new_section = function(name, action, section)
         return { name = name, action = action, section = section }
@@ -44,7 +43,6 @@ noremap                             │ inoremap
       require("mini.starter").setup(opts)
     end,
   },
-
   -- Indent Line
   {
     "echasnovski/mini.indentscope",
@@ -58,7 +56,6 @@ noremap                             │ inoremap
       require("mini.indentscope").setup(opts)
     end,
   },
-
   -- Tab Line
   {
     "romgrk/barbar.nvim",
@@ -91,7 +88,6 @@ noremap                             │ inoremap
       require("bufferline").setup(opts)
     end,
   },
-
   -- Winbar
   {
     "utilyre/barbecue.nvim",
@@ -101,7 +97,6 @@ noremap                             │ inoremap
     },
     opts = {},
   },
-
   -- Status line
   {
     "nvim-lualine/lualine.nvim",

@@ -25,7 +25,6 @@ return {
       require("neo-tree").setup()
     end,
   },
-
   -- Fuzzy Finder
   {
     "nvim-telescope/telescope.nvim",
@@ -47,7 +46,6 @@ return {
       require("telescope").setup(opts)
     end,
   },
-
   -- Keymap Hint
   {
     "folke/which-key.nvim",
@@ -57,7 +55,6 @@ return {
       require("which-key").setup({})
     end,
   },
-
   -- Git
   {
     "lewis6991/gitsigns.nvim",
@@ -79,9 +76,7 @@ return {
 
         map("n", "<leader>gh", gs.preview_hunk, "Preview Hunk")
         map("n", "<leader>gs", gs.stage_hunk, "Stage Hunk")
-        map("n", "<leader>gb", function()
-          gs.blame_line({ full = true })
-        end, "Blame Line")
+        map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
       end,
     },
   },

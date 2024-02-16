@@ -1,5 +1,4 @@
 return {
-
   -- Snippets
   {
     "L3MON4D3/LuaSnip",
@@ -17,13 +16,18 @@ return {
       local snip = require("luasnip")
 
       return {
-        { "<tab>", function() return snip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>" end, expr = true, silent = true, mode = "i", },
+        {
+          "<tab>",
+          function() return snip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>" end,
+          expr = true,
+          silent = true,
+          mode = "i",
+        },
         { "<tab>", function() snip.jump(1) end, mode = "s", },
         { "<s-tab>", function() snip.jump(-1) end, mode = { "i", "s" }, },
       }
     end,
   },
-
   -- Auto Completion
   {
     "hrsh7th/nvim-cmp",
@@ -34,6 +38,7 @@ return {
     },
     opts = function()
       local cmp = require("cmp")
+
       return {
         snippet = {
           expand = function(args)
@@ -57,7 +62,6 @@ return {
       }
     end,
   },
-
   -- built-in LSP plugin
   {
     "glepnir/lspsaga.nvim",
@@ -92,7 +96,6 @@ return {
       },
     },
   },
-
   -- Auto Pair plugin
   {
     "windwp/nvim-autopairs",
@@ -103,7 +106,6 @@ return {
       require("nvim-autopairs").setup(opts)
     end,
   },
-
   -- autoclose and autorename html tag
   {
     "windwp/nvim-ts-autotag",
@@ -111,13 +113,10 @@ return {
       require("nvim-ts-autotag").setup({})
     end,
   },
-
   -- Auto Close (if, do, def, endif)
   "tpope/vim-endwise",
-
   -- Change and Add Surroundings in Pairs
   "tpope/vim-surround",
-
   -- Comment Out
   "tpope/vim-commentary",
 }

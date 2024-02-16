@@ -1,5 +1,4 @@
 return {
-
   -- LSP Config
   {
     "neovim/nvim-lspconfig",
@@ -47,26 +46,22 @@ return {
         }, servers[server] or {})
 
         if opts.setup[server] then
-          if opts.setup[server](server, server_opts) then
-            return
-          end
+          if opts.setup[server](server, server_opts) then return end
         elseif opts.setup["*"] then
-          if opts.setup["*"](server, server_opts) then
-            return
-          end
+          if opts.setup["*"](server, server_opts) then return end
         end
+
         require("lspconfig")[server].setup(server_opts)
       end
 
-      local mlsp = require("mason-lspconfig")
-      local available = mlsp.get_available_servers()
-
+      local mlsp_available = require("mason-lspconfig").get_available_servers()
       local ensure_installed = {} ---@type string[]
+
       for server, server_opts in pairs(servers) do
         if server_opts then
           server_opts = server_opts == true and {} or server_opts
           -- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-          if server_opts.mason == false or not vim.tbl_contains(available, server) then
+          if server_opts.mason == false or not vim.tbl_contains(mlsp_available, server) then
             setup(server)
           else
             ensure_installed[#ensure_installed + 1] = server
@@ -79,7 +74,6 @@ return {
       require("mason-lspconfig").setup_handlers({ setup })
     end,
   },
-
   -- Formatters
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -97,13 +91,11 @@ return {
         sources = {
           nls.builtins.formatting.fish_indent,
           nls.builtins.diagnostics.fish,
-          nls.builtins.formatting.stylua,
           nls.builtins.formatting.shfmt,
         },
       }
     end,
   },
-
   -- Cmdline tools and LSP servers
   {
     "williamboman/mason.nvim",
@@ -111,14 +103,9 @@ return {
       "jose-elias-alvarez/null-ls.nvim",
     },
     opts = {
-      ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-      },
+      ensure_installed = {},
     },
     config = function(plugin, opts)
-      require("mason").setup(opts)
       local mr = require("mason-registry")
 
       for _, tool in ipairs(opts.ensure_installed) do
@@ -127,6 +114,7 @@ return {
           p:install()
         end
       end
+      require("mason").setup(opts)
     end,
   },
 }

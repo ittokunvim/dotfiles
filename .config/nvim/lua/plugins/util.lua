@@ -4,10 +4,8 @@ return {
     "dstein64/vim-startuptime",
     keys = { { "<leader>sut", "<cmd>StartupTime<cr>", desc = "Vim StartUpTime" } },
   },
-
   -- editorconfig
   "editorconfig/editorconfig-vim",
-
   -- MarkDown Preview
   {
     "iamcco/markdown-preview.nvim",

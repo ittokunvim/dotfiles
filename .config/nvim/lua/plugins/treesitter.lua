@@ -11,6 +11,7 @@ return {
       "json",
       "markdown",
       "markdown_inline",
+      "ruby",
       "rust",
       "tsx",
       "typescript",
