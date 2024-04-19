@@ -71,13 +71,13 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     keys = {
-      { "<leader>sf", "<cmd>Lspsaga lsp_finder<cr>",           desc = "Lspsaga finder" },
-      { "<leader>sh", "<cmd>Lspsaga hover_doc<cr>",            desc = "Lspsaga doc" },
-      { "<leader>sr", "<cmd>Lspsaga rename<cr>",               desc = "Lspsaga rename" },
-      { "<leader>sa", "<cmd>Lspsaga code_action<cr>",          desc = "Lspsaga code action" },
-      { "<leader>s[", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Lspsaga diagnostic prev" },
-      { "<leader>s]", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Lspsaga diagnostic next" },
-      { "<leader>st", "<cmd>Lspsaga term_toggle<cr>",          desc = "Lspsaga terminal" },
+      { ";sf", "<cmd>Lspsaga lsp_finder<cr>",           desc = "Lspsaga finder" },
+      { ";sh", "<cmd>Lspsaga hover_doc<cr>",            desc = "Lspsaga doc" },
+      { ";sr", "<cmd>Lspsaga rename<cr>",               desc = "Lspsaga rename" },
+      { ";sa", "<cmd>Lspsaga code_action<cr>",          desc = "Lspsaga code action" },
+      { ";s[", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Lspsaga diagnostic prev" },
+      { ";s]", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Lspsaga diagnostic next" },
+      { ";st", "<cmd>Lspsaga term_toggle<cr>",          desc = "Lspsaga terminal" },
     },
     opts = {
       ui = {

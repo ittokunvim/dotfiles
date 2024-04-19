@@ -79,7 +79,7 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     keys = {
-      { "<leader>lf", vim.lsp.buf.format },
+      { ";lf", vim.lsp.buf.format },
     },
     dependencies = {
       "mason.nvim",

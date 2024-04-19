@@ -10,7 +10,7 @@ return {
     cmd = "Neotree",
     keys = {
       {
-        "<leader>e",
+        ";e",
         function()
           require("neo-tree.command").execute({
             action = "show",
@@ -33,8 +33,8 @@ return {
     },
     cmd = "Telescope",
     keys = {
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope Files" },
-      { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "Telescope Grep" },
+      { ";ff", "<cmd>Telescope find_files<cr>", desc = "Telescope Files" },
+      { ";fg", "<cmd>Telescope live_grep<cr>",  desc = "Telescope Grep" },
     },
     opts = {
       defaults = {
@@ -74,9 +74,9 @@ return {
           vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
         end
 
-        map("n", "<leader>gh", gs.preview_hunk, "Preview Hunk")
-        map("n", "<leader>gs", gs.stage_hunk, "Stage Hunk")
-        map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
+        map("n", ";gh", gs.preview_hunk, "Preview Hunk")
+        map("n", ";gs", gs.stage_hunk, "Stage Hunk")
+        map("n", ";gb", function() gs.blame_line({ full = true }) end, "Blame Line")
       end,
     },
   },
