@@ -9,6 +9,7 @@ return {
       suggestion = { enabled = false },
       filetypes = {
         yaml = false,
+        rust = false,
         markdown = false,
         gitcommit = false,
         gitrebase = false,

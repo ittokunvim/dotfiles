@@ -32,7 +32,7 @@ return {
             },
           },
         },
-        tsserver = {},
+        ts_ls = {},
       },
       setup = {},
     },

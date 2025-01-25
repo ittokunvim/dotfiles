@@ -25,9 +25,6 @@ return {
     indent = {
       enable = true,
     },
-    autotag = {
-      enable = true,
-    },
   },
   config = function(plugin, opts)
     require("nvim-treesitter.configs").setup(opts)
