@@ -1,4 +1,5 @@
 # Send JSON request
+# REQ: curl
 function curl-json
     if ! string length -q $argv[3]
         echo "usage: curl-json [Method] [URL] [DATA] [OPTIONS...]"
