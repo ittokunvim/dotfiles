@@ -60,8 +60,6 @@ nnoremap - <C-x>
 " select all
 nnoremap <C-a> gg<S-v>G
 
-nnoremap <C-w> <C-w>w
-
 " use emac key bind when insert mode
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
