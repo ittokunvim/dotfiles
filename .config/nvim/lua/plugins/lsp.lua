@@ -69,8 +69,11 @@ return {
         end
       end
 
-      require("neodev").setup({})
-      require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
+      require("neodev").setup()
+      require("mason-lspconfig").setup({
+        automatic_installation = true,
+        ensure_installed = ensure_installed,
+      })
       require("mason-lspconfig").setup_handlers({ setup })
     end,
   },
