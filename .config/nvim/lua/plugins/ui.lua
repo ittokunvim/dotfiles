@@ -130,4 +130,44 @@ noremap                      │ inoremap
       require("lualine").setup(opts)
     end,
   },
+  -- smooth scrolling
+  {
+    "karb94/neoscroll.nvim",
+    opts = {
+      function()
+        local mappings = {
+          '<C-u>', '<C-d>',
+          '<C-b>', '<C-f>',
+          '<C-y>', '<C-e>',
+          'zt', 'zz', 'zb',
+        };
+        return {
+          -- Keys to be mapped to their corresponding default scrolling animation
+          mappings = mappings,
+          -- Hide cursor while scrolling
+          hide_cursor = true,
+          -- Stop at <EOF> when scrolling downwards
+          stop_eof = true,
+          -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+          respect_scrolloff = false,
+          -- The cursor will keep on scrolling even if the window cannot scroll further
+          cursor_scrolls_alone = true,
+          -- Global duration multiplier
+          duration_multiplier = 1.0,
+          -- Default easing function
+          easing = 'linear',
+          -- Function to run before the scrolling animation starts
+          pre_hook = nil,
+          -- Function to run after the scrolling animation ends
+          post_hook = nil,
+          -- Disable "Performance Mode" on all buffers.
+          performance_mode = false,
+          -- Events ignored while scrolling
+          ignored_events = {
+            'WinScrolled', 'CursorMoved'
+          },
+        }
+      end
+    },
+  },
 }
