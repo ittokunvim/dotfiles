@@ -2,11 +2,13 @@ return {
   -- File Explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
+    lazy = false,
     cmd = "Neotree",
     keys = {
       {
@@ -21,9 +23,9 @@ return {
         desc = "NeoTree",
       },
     },
-    config = function()
-      require("neo-tree").setup()
-    end,
+    ---@module "neo-tree"
+    ---@type neotree.Config
+    opts = {},
   },
   -- Fuzzy Finder
   {

@@ -74,7 +74,7 @@ return {
         automatic_installation = true,
         ensure_installed = ensure_installed,
       })
-      require("mason-lspconfig").setup_handlers({ setup })
+      require("mason-lspconfig").setup({ setup })
     end,
   },
   -- Formatters
