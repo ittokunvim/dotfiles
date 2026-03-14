@@ -75,6 +75,16 @@ return {
         ensure_installed = ensure_installed,
       })
       require("mason-lspconfig").setup({ setup })
+
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" }
+            }
+          }
+        }
+      })
     end,
   },
   -- Formatters
