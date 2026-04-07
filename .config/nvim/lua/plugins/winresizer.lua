@@ -1,3 +1,4 @@
+-- Window Resizer
 return {
   "simeji/winresizer",
   keys = {

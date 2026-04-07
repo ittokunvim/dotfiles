@@ -1,3 +1,4 @@
+-- focus window
 return {
   "levouh/tint.nvim",
   config = function(plugin, opts)

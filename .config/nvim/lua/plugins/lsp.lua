@@ -104,7 +104,6 @@ return {
         sources = {
           nls.builtins.formatting.fish_indent,
           nls.builtins.diagnostics.fish,
-          nls.builtins.formatting.shfmt,
         },
       }
     end,
