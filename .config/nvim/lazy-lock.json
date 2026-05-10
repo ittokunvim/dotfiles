@@ -6,6 +6,7 @@
   "blink.lib": { "branch": "main", "commit": "f29d8bac6549bc1e7d699c83f680823d7def98bd" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "cbc7b02bb99fae35cb42f514762b89b5126651ef" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
+  "drop.nvim": { "branch": "main", "commit": "f27c147af59c41712dd3d513cb03f4fae7aec46d" },
   "editorconfig-vim": { "branch": "master", "commit": "13b86c5c691785ffbf2d6508c621dabb08e93df0" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
   "gitsigns.nvim": { "branch": "main", "commit": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3" },
