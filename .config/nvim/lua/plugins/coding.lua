@@ -102,7 +102,7 @@ return {
     opts = {
       disable_filetype = { "TelescopePrompt", "vim" },
     },
-    config = function(plugin, opts)
+    config = function(_, opts)
       require("nvim-autopairs").setup(opts)
     end,
   },

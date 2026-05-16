@@ -39,9 +39,6 @@ noremap                      │ inoremap
       ]],
       }
     end,
-    config = function(plugin, opts)
-      require("mini.starter").setup(opts)
-    end,
   },
   -- Indent Line
   {
@@ -52,9 +49,6 @@ noremap                      │ inoremap
       },
       symbol = "│",
     },
-    config = function(plugin, opts)
-      require("mini.indentscope").setup(opts)
-    end,
   },
   -- Tab Line
   {
@@ -84,9 +78,6 @@ noremap                      │ inoremap
         pinned = { button = "", filename = true },
       },
     },
-    config = function(plugin, opts)
-      require("bufferline").setup(opts)
-    end,
   },
   -- Winbar
   {
@@ -126,8 +117,5 @@ noremap                      │ inoremap
         lualine_z = {},
       },
     },
-    config = function(plugins, opts)
-      require("lualine").setup(opts)
-    end,
   },
 }

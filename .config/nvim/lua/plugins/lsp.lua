@@ -115,7 +115,7 @@ return {
     opts = {
       ensure_installed = {},
     },
-    config = function(plugin, opts)
+    config = function(_, opts)
       local mr = require("mason-registry")
 
       for _, tool in ipairs(opts.ensure_installed) do

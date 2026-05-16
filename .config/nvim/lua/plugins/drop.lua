@@ -1,9 +1,7 @@
 return {
   "folke/drop.nvim",
   opts = {
-    ---@type DropTheme|string
     theme = "stars", -- when auto, it will choose a theme based on the date
-    ---@type ({theme: string}|DropDate|{from:DropDate, to:DropDate}|{holiday:"us_thanksgiving"|"easter"})[]
     themes = {
       { theme = "new_year", month = 1, day = 1 },
       { theme = "valentines_day", month = 2, day = 14 },
