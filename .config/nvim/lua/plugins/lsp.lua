@@ -35,7 +35,7 @@ return {
       },
       setup = {},
     },
-    config = function(plugin, opts)
+    config = function(_, opts)
       local servers = opts.servers
       local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
