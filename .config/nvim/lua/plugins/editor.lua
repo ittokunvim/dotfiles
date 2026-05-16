@@ -44,18 +44,28 @@ return {
         layout_config = { height = 0.95 },
       },
     },
-    config = function(plugin, opts)
+    config = function(_, opts)
       require("telescope").setup(opts)
     end,
   },
   -- Keymap Hint
   {
     "folke/which-key.nvim",
-    config = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 500
-      require("which-key").setup({})
-    end,
+    event = "VeryLazy",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
   },
   -- Git
   {
