@@ -140,5 +140,7 @@ inoremap <C-h> <BS>
 " 文字を削除してもヤンクしない
 nnoremap x "_x
 nnoremap D "_D
-nnoremap dd "_dd
+" クリップボードにコピー
+set clipboard=unnamedplus
+
 

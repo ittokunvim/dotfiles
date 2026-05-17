@@ -4,8 +4,6 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-nvim-lsp",
     },
@@ -27,6 +25,9 @@ return {
               },
               completion = {
                 callSnippet = "Replace",
+              },
+              diagnostics = {
+                globals = { "vim" },
               },
             },
           },
@@ -72,59 +73,25 @@ return {
         automatic_installation = true,
         ensure_installed = ensure_installed,
       })
-      require("mason-lspconfig").setup({ setup })
-
-      vim.lsp.config("lua_ls", {
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" }
-            }
-          }
-        }
-      })
-    end,
-  },
-  -- Formatters
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    keys = {
-      { ";lf", vim.lsp.buf.format },
-    },
-    dependencies = {
-      "mason.nvim",
-    },
-    opts = function()
-      local nls = require("null-ls")
-      return {
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
-        sources = {
-          nls.builtins.formatting.fish_indent,
-          nls.builtins.diagnostics.fish,
-        },
-      }
-    end,
+   end,
   },
   -- Cmdline tools and LSP servers
   {
-    "williamboman/mason.nvim",
-    dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
-    },
+    "mason-org/mason.nvim",
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗"
+        }
+      }
+    }
+  },
+  {
+    "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {},
     },
-    config = function(_, opts)
-      local mr = require("mason-registry")
-
-      for _, tool in ipairs(opts.ensure_installed) do
-        local p = mr.get_package(tool)
-        if not p:is_installed() then
-          p:install()
-        end
-      end
-      require("mason").setup(opts)
-    end,
   },
 }
