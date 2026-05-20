@@ -4,8 +4,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      "hrsh7th/nvim-cmp",
-      "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
     opts = {
       autoformat = true,
@@ -38,10 +37,9 @@ return {
     },
     config = function(_, opts)
       local servers = opts.servers
-      local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-      local function setup(server)
-        local server_opts = vim.tbl_deep_extend("force", {
+      local function setup(server) local server_opts = vim.tbl_deep_extend("force", {
           capabilities = vim.deepcopy(capabilities),
         }, servers[server] or {})
 
@@ -65,6 +63,11 @@ return {
             setup(server)
           else
             ensure_installed[#ensure_installed + 1] = server
+          end
+          if server_opts.mason == false or not vim.tbl_contains(mlsp_available, server) then
+            setup(server)
+          else
+            ensure_installed[#ensure_installed+1] = server
           end
         end
       end
