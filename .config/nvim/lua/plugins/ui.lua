@@ -144,5 +144,4 @@ noremap                      │ inoremap
   },
   -- focus window
   "levouh/tint.nvim",
-  opts = {},
 }
