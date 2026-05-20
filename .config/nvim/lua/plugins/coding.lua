@@ -1,20 +1,17 @@
 return {
+  -- 補完プラグイン
+  -- See :h blink-cmp-config-keymap for defining your own keymap
   {
     "saghen/blink.cmp",
     -- 遅延読み込み
     event = { "InsertEnter", "CmdLineEnter" },
-    -- optional: provides snippets for the snippet source
+    -- use a release tag to download pre-built binaries
+    version = '1.*',
     dependencies = {
       "rafamadriz/friendly-snippets",
       "L3MON4D3/LuaSnip",
+      "windwp/nvim-autopairs",
     },
-    -- use a release tag to download pre-built binaries
-    version = '1.*',
-    -- AND/OR build from source
-    -- build = 'cargo build --release',
-    -- If you use nix, you can build from source with:
-    -- build = 'nix run .#build-plugin',
-
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -28,15 +25,7 @@ return {
       -- C-n/C-p or Up/Down: Select next/previous item
       -- C-e: Hide menu
       -- C-k: Toggle signature help (if signature.enabled = true)
-      --
-      -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = { preset = "enter" },
-
-      appearance = {
-        -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-        -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono'
-      },
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
@@ -45,57 +34,14 @@ return {
         ghost_text = { enabled = true },
       },
 
-      -- Default list of enabled providers defined so that you can extend it
-      -- elsewhere in your config, without redefining it, due to `opts_extend`
-      sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
-      },
-
-      -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-      -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-      -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-      --
-      -- See the fuzzy documentation for more information
-      fuzzy = { implementation = "prefer_rust_with_warning" },
-
       -- キーマップにluasnipを使用する
       snippets = { preset = "luasnip" },
     },
-    opts_extend = { "sources.default" }
   },
-  -- Snippets
+  -- LSP用のUIプラグイン
   {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
-      end,
-    },
-    opts = {
-      history = true,
-      delete_check_events = "TextChanged",
-    },
-    keys = function()
-      local snip = require("luasnip")
-
-      return {
-        {
-          "<tab>",
-          function() return snip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>" end,
-          expr = true,
-          silent = true,
-          mode = "i",
-        },
-        { "<tab>", function() snip.jump(1) end, mode = "s", },
-        { "<s-tab>", function() snip.jump(-1) end, mode = { "i", "s" }, },
-      }
-    end,
-  },
-  -- built-in LSP plugin
-  {
-    "glepnir/lspsaga.nvim",
-    event = "BufRead",
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       "nvim-treesitter/nvim-treesitter",
@@ -126,30 +72,15 @@ return {
       },
     },
   },
-  -- Auto Pair plugin
+  -- オートペアリングプラグイン
   {
-    "windwp/nvim-autopairs",
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
     opts = {
-      disable_filetype = { "TelescopePrompt", "vim" },
+      disable_filetype = { "TelescopePrompt" , "vim" },
     },
-    config = function(_, opts)
-      require("nvim-autopairs").setup(opts)
-    end,
   },
-  -- autoclose and autorename html tag
-  {
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
-  },
-  -- Auto Close (if, do, def, endif)
-  "tpope/vim-endwise",
-  -- Change and Add Surroundings in Pairs
-  "tpope/vim-surround",
-  -- Comment Out
-  "tpope/vim-commentary",
-  -- Lua
+  -- フルスクリーンでコーディングを行う
   {
     "folke/zen-mode.nvim",
     keys = {
@@ -161,6 +92,7 @@ return {
       -- refer to the configuration section below
     }
   },
+  -- フルスクリーン中にコードをフォーカスする
   {
     "folke/twilight.nvim",
     opts = {
@@ -183,5 +115,25 @@ return {
       },
       exclude = {}, -- exclude these filetypes
     },
+  },
+  -- -- treesitterを使って、HTMLタグを自動的に閉じることができる
+  -- {
+  --   "windwp/nvim-ts-autotag",
+  --   event = "InsertEnter",
+  --   opts = {},
+  -- },
+  -- 括弧を追加、編集、削除ができる
+  -- See `:h nvim-surround.configuration` and `:h nvim-surround.setup` for details
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    opts = {},
+  },
+  -- Neovimの標準コメント機能を強化する小さなプラグイン
+  {
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
+    enabled = vim.fn.has("nvim-0.10.0") == 1,
   },
 }
