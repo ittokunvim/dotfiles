@@ -6,7 +6,7 @@ return {
     -- 遅延読み込み
     event = { "InsertEnter", "CmdLineEnter" },
     -- use a release tag to download pre-built binaries
-    version = '1.*',
+    version = "1.*",
     dependencies = {
       "rafamadriz/friendly-snippets",
       "L3MON4D3/LuaSnip",
@@ -47,13 +47,13 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     keys = {
-      { ";sf", "<cmd>Lspsaga lsp_finder<cr>",           desc = "Lspsaga finder" },
-      { ";sh", "<cmd>Lspsaga hover_doc<cr>",            desc = "Lspsaga doc" },
-      { ";sr", "<cmd>Lspsaga rename<cr>",               desc = "Lspsaga rename" },
-      { ";sa", "<cmd>Lspsaga code_action<cr>",          desc = "Lspsaga code action" },
+      { ";sf", "<cmd>Lspsaga lsp_finder<cr>", desc = "Lspsaga finder" },
+      { ";sh", "<cmd>Lspsaga hover_doc<cr>", desc = "Lspsaga doc" },
+      { ";sr", "<cmd>Lspsaga rename<cr>", desc = "Lspsaga rename" },
+      { ";sa", "<cmd>Lspsaga code_action<cr>", desc = "Lspsaga code action" },
       { ";s[", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Lspsaga diagnostic prev" },
       { ";s]", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Lspsaga diagnostic next" },
-      { ";st", "<cmd>Lspsaga term_toggle<cr>",          desc = "Lspsaga terminal" },
+      { ";st", "<cmd>Lspsaga term_toggle<cr>", desc = "Lspsaga terminal" },
     },
     opts = {
       ui = {
@@ -72,12 +72,12 @@ return {
       },
     },
   },
-  -- オートペアリングプラグイン
+  -- オートペアリングを行う
   {
-    'windwp/nvim-autopairs',
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {
-      disable_filetype = { "TelescopePrompt" , "vim" },
+      disable_filetype = { "TelescopePrompt", "vim" },
     },
   },
   -- フルスクリーンでコーディングを行う
@@ -90,7 +90,7 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-    }
+    },
   },
   -- フルスクリーン中にコードをフォーカスする
   {

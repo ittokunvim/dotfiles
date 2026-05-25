@@ -1,5 +1,5 @@
 return {
-  -- LSP Config
+  -- LSP(Language Server Protocol)を使用する
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
@@ -39,14 +39,19 @@ return {
       local servers = opts.servers
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-      local function setup(server) local server_opts = vim.tbl_deep_extend("force", {
+      local function setup(server)
+        local server_opts = vim.tbl_deep_extend("force", {
           capabilities = vim.deepcopy(capabilities),
         }, servers[server] or {})
 
         if opts.setup[server] then
-          if opts.setup[server](server, server_opts) then return end
+          if opts.setup[server](server, server_opts) then
+            return
+          end
         elseif opts.setup["*"] then
-          if opts.setup["*"](server, server_opts) then return end
+          if opts.setup["*"](server, server_opts) then
+            return
+          end
         end
 
         require("lspconfig")[server].setup(server_opts)
@@ -67,7 +72,7 @@ return {
           if server_opts.mason == false or not vim.tbl_contains(mlsp_available, server) then
             setup(server)
           else
-            ensure_installed[#ensure_installed+1] = server
+            ensure_installed[#ensure_installed + 1] = server
           end
         end
       end
@@ -76,21 +81,50 @@ return {
         automatic_installation = true,
         ensure_installed = ensure_installed,
       })
-   end,
+    end,
   },
   -- Cmdline tools and LSP servers
   {
     "mason-org/mason.nvim",
+    build = ":MasonUpdate",
+    opts_extend = { "ensure_installed" },
     opts = {
+      ensure_installed = {
+        "stylua",
+        "shfmt",
+      },
       ui = {
         icons = {
           package_installed = "✓",
           package_pending = "➜",
-          package_uninstalled = "✗"
-        }
-      }
-    }
+          package_uninstalled = "✗",
+        },
+      },
+    },
+    ---@param opts MasonSettings | {ensure_installed: string[]}
+    config = function(_, opts)
+      require("mason").setup(opts)
+      local mr = require("mason-registry")
+      mr:on("package:install:success", function()
+        vim.defer_fn(function()
+          require("lazy.core.handler.event").trigger({
+            event = "FileType",
+            buf = vim.api.nvim_get_current_buf(),
+          })
+        end, 100)
+      end)
+
+      mr.refresh(function()
+        for _, tool in ipairs(opts.ensure_installed) do
+          local p = mr.get_package(tool)
+          if not p:is_installed() then
+            p:install()
+          end
+        end
+      end)
+    end,
   },
+  -- nvim-lspconfigとmason.nvimを結ぶプラグイン
   {
     "mason-org/mason-lspconfig.nvim",
     opts = {

@@ -1,12 +1,12 @@
 return {
-  -- File Explorer
+  -- ファイルエクスプローラー
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
     },
     lazy = false,
     cmd = "Neotree",
@@ -27,16 +27,19 @@ return {
     ---@type neotree.Config
     opts = {},
   },
-  -- Fuzzy Finder
+  -- ファインダー
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     cmd = "Telescope",
     keys = {
-      { ";ff", "<cmd>Telescope find_files<cr>", desc = "Telescope Files" },
-      { ";fg", "<cmd>Telescope live_grep<cr>",  desc = "Telescope Grep" },
+      { ";ff", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
+      { ";fg", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
+      { ";fb", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
+      { ";fh", "<cmd>Telescope help_tags<cr>", desc = "Telescope help tags" },
     },
     opts = {
       defaults = {
@@ -44,22 +47,26 @@ return {
         layout_config = { height = 0.95 },
       },
     },
-    config = function(_, opts)
-      require("telescope").setup(opts)
-    end,
   },
-  -- Keymap Hint
+  -- キーマップヒント
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+      spec = {
+        {
+          mode = { "n", "x" },
+          { ";b", group = "Tab" },
+          { ";f", group = "Telescope" },
+          { ";g", group = "Git" },
+          { ";s", group = "Lspsaga" },
+          { ";x", group = "Debug" },
+        },
+      },
     },
     keys = {
       {
-        "<leader>?",
+        ";?",
         function()
           require("which-key").show({ global = false })
         end,
@@ -67,11 +74,11 @@ return {
       },
     },
   },
-  -- Window Resizer
+  -- 画面リサイズ
   {
     "simeji/winresizer",
     keys = {
-      { "<c-t>", "<cmd>WinResizerStartResize<cr>", desc = "WindowResize" },
+      { ";w", "<cmd>WinResizerStartResize<cr>", desc = "WindowResize" },
     },
-  }
+  },
 }

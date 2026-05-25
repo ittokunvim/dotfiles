@@ -1,7 +1,10 @@
 return {
-  -- formatter
+  -- フォーマッター
   {
-    'stevearc/conform.nvim',
+    "stevearc/conform.nvim",
+    dependencies = { "mason.nvim" },
+    lazy = true,
+    cmd = "ConformInfo",
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
@@ -12,9 +15,13 @@ return {
         -- Conform will run the first available formatter
         javascript = { "prettierd", "prettier", stop_after_first = true },
       },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "fallback",
+      },
     },
   },
-  -- local project settings
+  -- neoconf.jsonを読み取り、設定を管理する
   {
     "folke/neoconf.nvim",
     opts = {

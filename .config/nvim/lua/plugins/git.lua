@@ -1,5 +1,5 @@
 return {
-  -- Git
+  -- Gitを操作する
   {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -20,7 +20,9 @@ return {
 
         map("n", ";gh", gs.preview_hunk, "Preview Hunk")
         map("n", ";gs", gs.stage_hunk, "Stage Hunk")
-        map("n", ";gb", function() gs.blame_line({ full = true }) end, "Blame Line")
+        map("n", ";gb", function()
+          gs.blame_line({ full = true })
+        end, "Blame Line")
       end,
     },
   },

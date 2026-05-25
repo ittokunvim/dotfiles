@@ -3,6 +3,9 @@ return {
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
+    dependencies = {
+      "saghen/blink.cmp", -- optional
+    },
     opts = {
       library = {
         -- See the configuration section for more details
@@ -11,38 +14,15 @@ return {
       },
     },
   },
-  { -- optional blink completion source for require statements and module annotations
-    "saghen/blink.cmp",
-    dependencies = {
-      'saghen/blink.lib',
-      -- 他の依存関係（例: friendly-snippets）
-      'rafamadriz/friendly-snippets',
-    },
-    opts = {
-      sources = {
-        -- add lazydev to your completion providers
-        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-        providers = {
-          lazydev = {
-            name = "LazyDev",
-            module = "lazydev.integrations.blink",
-            -- make lazydev completions top priority (see `:h blink.cmp`)
-            score_offset = 100,
-          },
-        },
-      },
-    },
-  },
-  -- markdown previwer
+  -- マークダウンプレビュー
   {
-    "MeanderingProgrammer/markdown.nvim",
-    main = "render-markdown",
-    opts = {},
-    name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    "MeanderingProgrammer/render-markdown.nvim",
+    -- dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    opts = {},
   },
+  -- TODOコメントに色付けを行う
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -109,8 +89,6 @@ return {
         pattern = [[\b(KEYWORDS):]], -- ripgrep regex
         -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
       },
-    }
+    },
   },
-  -- editorconfig
-  "editorconfig/editorconfig-vim",
 }
