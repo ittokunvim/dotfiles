@@ -57,6 +57,7 @@ return {
         {
           mode = { "n", "x" },
           { ";b", group = "Tab" },
+          { ";c", group = "Format" },
           { ";f", group = "Telescope" },
           { ";g", group = "Git" },
           { ";s", group = "Lspsaga" },
