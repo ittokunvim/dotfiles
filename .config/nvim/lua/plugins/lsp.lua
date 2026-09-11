@@ -16,6 +16,15 @@ return {
       },
       servers = {
         cssls = {},
+        emmet_language_server = {
+          filetypes = {
+            "html",
+            "css",
+            "scss",
+            "javascriptreact",
+            "typescriptreact",
+          },
+        },
         jsonls = {},
         rust_analyzer = {},
         lua_ls = {
@@ -87,6 +96,7 @@ return {
     opts_extend = { "ensure_installed" },
     opts = {
       ensure_installed = {
+        "emmet-language-server",
         "stylua",
         "shfmt",
       },
