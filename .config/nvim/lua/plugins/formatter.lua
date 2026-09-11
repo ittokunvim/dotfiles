@@ -2,13 +2,14 @@ return {
   -- フォーマッター
   {
     "stevearc/conform.nvim",
-    dependencies = { "mason.nvim" },
     lazy = true,
     cmd = "ConformInfo",
     keys = {
       {
         ";cf",
-        function() require("conform").format() end,
+        function()
+          require("conform").format()
+        end,
         mode = { "n", "x" },
         desc = "conform",
       },
