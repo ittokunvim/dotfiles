@@ -56,7 +56,9 @@ return {
           end
         end
 
-        require("lspconfig")[server].setup(merged_opts)
+        merged_opts.mason = nil
+        vim.lsp.config(server, merged_opts)
+        vim.lsp.enable(server)
       end
 
       local mlsp_available = require("mason-lspconfig").get_available_servers()
