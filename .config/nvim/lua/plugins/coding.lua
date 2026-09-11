@@ -116,12 +116,6 @@ return {
       exclude = {}, -- exclude these filetypes
     },
   },
-  -- treesitterを使って、HTMLタグを自動的に閉じることができる
-  {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-    opts = {},
-  },
   -- 括弧を追加、編集、削除ができる
   -- See `:h nvim-surround.configuration` and `:h nvim-surround.setup` for details
   {
