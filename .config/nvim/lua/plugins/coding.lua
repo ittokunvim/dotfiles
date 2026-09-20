@@ -29,6 +29,9 @@ return {
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
+        trigger = {
+          show_on_trigger_character = false,
+        },
         documentation = { auto_show = true },
         -- Display a preview of the selected item on the current line
         ghost_text = { enabled = true },

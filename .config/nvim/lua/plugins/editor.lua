@@ -62,6 +62,7 @@ return {
           { ";g", group = "Git" },
           { ";s", group = "Lspsaga" },
           { ";x", group = "Debug" },
+          { ";=", group = "Format" },
         },
       },
     },
