@@ -1,37 +1,85 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
-
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Pack, ship and run any application as a lightweight container
 brew "docker"
+# Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Banner-like program prints strings as ASCII art
 brew "figlet"
+# User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
+# Plugin manager for the Fish shell
 brew "fisher"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
 brew "git"
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# Simple terminal UI for git commands
 brew "lazygit"
+# Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Language Server for the Lua language
+brew "lua-language-server"
+# Package manager for the Lua programming language
+brew "luarocks"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# Development kit for the Java programming language
+brew "openjdk"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Command-line interface to the freedesktop.org trashcan
 brew "trash-cli"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Internet file retriever
 brew "wget"
+# Network analyzer and capture tool - without graphical user interface
+brew "wireshark"
+# Feature-rich command-line audio/video downloader
 brew "yt-dlp"
-
+# Application uninstaller
 cask "appcleaner"
-cask "arc"
+# Web browser focusing on privacy
 cask "brave-browser"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# Clipboard extension app
 cask "clipy"
+# AI-powered translator
 cask "deepl"
-cask "docker"
+# Web browser
 cask "firefox"
+# fonts
+cask "font-departure-mono-nerd-font"
+cask "font-hackgen-nerd"
+# Desktop client for GitHub repositories
 cask "github"
+# Native client for GitHub Copilot
+cask "github-copilot-app"
+# Web browser
 cask "google-chrome"
+# Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
-cask "visual-studio-code"
-cask "wireshark"
+# Music tagger
+cask "musicbrainz-picard"
+# Web browser
+cask "thebrowsercompany-dia"
+# Network protocol analyzer
+cask "wireshark-app"
