@@ -27,9 +27,6 @@ if status is-interactive
 
   # Theme
   fish_config theme choose tokyonight_night
-
-  # Prompt
-  starship init fish | source
 end
 
 

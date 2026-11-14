@@ -38,7 +38,6 @@ brew bundle --file=.config/homebrew/Brewfile
 
 - `~/.config/fish`
 - `~/.config/nvim`
-- `~/.config/starship.toml`
 - `~/.vimrc`
 - `~/.zshrc`
 
@@ -74,7 +73,6 @@ fisher update
 
 ここまでうまくいけば、`fish, nvim`がうまいこと設定されているはずです。
 
-- fish が起動し、Starship のプロンプトが表示される
 - `nvim` を開くと設定が反映されている
 - `ls -ld ~/.config` の先頭が `d`（シンボリックリンクではなく通常のフォルダ）になっている
 

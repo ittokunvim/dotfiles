@@ -38,8 +38,6 @@ brew "openjdk"
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
-# Cross-shell prompt for astronauts
-brew "starship"
 # Command-line interface to the freedesktop.org trashcan
 brew "trash-cli"
 # Display directories as trees (with optional color/HTML output)
@@ -72,7 +70,6 @@ cask "clipy"
 cask "deepl"
 # Web browser
 cask "firefox"
-# fonts
 cask "font-departure-mono-nerd-font"
 cask "font-hackgen-nerd"
 # Desktop client for GitHub repositories
