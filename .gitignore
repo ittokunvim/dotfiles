@@ -8,3 +8,8 @@
 .config/iterm2
 .config/wireshark
 .config/qiita-cli
+
+# fish (自動生成)
+.config/fish/fish_variables
+.config/fish/functions/__z*.fish
+.config/fish/conf.d/z.fish
