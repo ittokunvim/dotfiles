@@ -8,24 +8,28 @@ fish_add_path --path \
     /opt/homebrew/opt/libpq/bin \
     /opt/homebrew/opt/trash-cli/bin
 
-# Commands
 if status is-interactive
+  # Abbreviations（入力時に展開される）
+  abbr -a c clear
+  abbr -a lg lazygit
+  abbr -a ls lsd
+  abbr -a rm trash
+  abbr -a ls lsd
+  abbr -a rm trash
+
+  # Aliases
 	alias ...="cd ../../"
-	alias c="clear"
-	alias d="docker"
-	alias dc="docker-compose"
-	alias lg="lazygit"
-
-	alias bat="bat --theme=base16"
-	alias grep="rg"
-	alias ls="lsd"
-	alias rm="trash"
-
+  alias bat="bat --theme=base16"
 	alias relog="exec $SHELL -l"
 	alias echo-filesize="du -sm"
 	alias echo-ip-gro="curl ifconfig.io"
 	alias echo-ip-pri="networksetup -getinfo Wi-Fi"
+
+  # Theme
+  fish_config theme choose tokyonight_night
+
+  # Prompt
+  starship init fish | source
 end
 
-# Theme
-fish_config theme choose nord
+
