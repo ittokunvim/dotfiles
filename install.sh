@@ -32,7 +32,7 @@ link() {
 
 link .config/fish
 link .config/nvim
-link .config/zed
 link .config/starship.toml
 link .vimrc
-link .warp
+link .zshrc
+link .zsh

@@ -38,10 +38,10 @@ brew bundle --file=.config/homebrew/Brewfile
 
 - `~/.config/fish`
 - `~/.config/nvim`
-- `~/.config/zed`
 - `~/.config/starship.toml`
 - `~/.vimrc`
-- `~/.warp`
+- `~/.zshrc`
+- `~/.zsh`
 
 > 以前の手順で `~/.config` をまるごとリンクしている場合は、`rm ~/.config` でリンクを外してから実行してください（末尾に `/` を付けないこと）。
 

@@ -16,4 +16,4 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 [[ -f ~/.zsh/function.zsh ]] && source ~/.zsh/function.zsh
 [[ -f ~/.zsh/history.zsh ]] && source ~/.zsh/history.zsh
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
-[[ -f ~/.zsh/zplug.zsh ]] && source ~/.zsh/zplug.zsh
+[[ -f ~/.zsh/plugin.zsh ]] && source ~/.zsh/plugin.zsh
