@@ -23,6 +23,7 @@ return {
         "markdown_inline",
         "printf",
         "python",
+        "rust",
         "query",
         "toml",
         "tsx",
@@ -41,11 +42,11 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = {
           "bash",
+          "sh",
           "c",
           "diff",
           "html",
           "javascript",
-          "jsdoc",
           "json",
           "lua",
           "markdown",
