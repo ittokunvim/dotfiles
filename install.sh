@@ -35,4 +35,3 @@ link .config/nvim
 link .config/starship.toml
 link .vimrc
 link .zshrc
-link .zsh
